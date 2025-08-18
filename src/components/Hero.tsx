@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
                         >
                             Hi, I'm{' '}
                             <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
-                                Abaid Abbott
+                                Abaid Ullah
                             </span>
                         </motion.h1>
 

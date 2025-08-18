@@ -2,6 +2,7 @@
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGithub } from 'react-icons/fa';
 import { TbClockHour4 } from "react-icons/tb";
 import Chatbot from './chatbot/chatbot';
+import { Linkedin } from 'lucide-react';
 // import { useChatbotContext } from './chatbot/chatbot-provider';
 
 const Contact: React.FC = () => {
@@ -76,6 +77,12 @@ const Contact: React.FC = () => {
                 <FaGithub size={24} className="text-gray-100 dark:text-gray-900" />
               </div>
               <a href="https://github.com/abaidabbott" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">github.com/abaidabbott</a>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-lg p-4'>
+                <Linkedin size={24} className="text-gray-100 dark:text-gray-900" />
+              </div>
+              <a href="https://linkedin.com/in/abaidabbott" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">linkedin.com/in/abaidabbott</a>
             </div>
             <div className="flex items-center space-x-4">
               <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-lg p-4'>
