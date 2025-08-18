@@ -57,7 +57,7 @@ export const emailTemplates: Record<string, EmailTemplate> = {
                 <h3>📋 Project Details Form</h3>
                 <p>Please fill out our comprehensive project form to help us understand your requirements:</p>
                 
-                <a href="https://abaidbutt.com/quote-form?session={{sessionId}}" class="button">
+                <a href="https://abaidabbott.com/quote-form?session={{sessionId}}" class="button">
                     Complete Project Form →
                 </a>
                 
@@ -183,7 +183,7 @@ export const emailTemplates: Record<string, EmailTemplate> = {
                 <p>Choose the option that works best for you:</p>
                 <a href="mailto:bestabaidullahbutt@gmail.com?subject=Project Inquiry" class="button">Send Email</a>
                 <a href="tel:+923111715499" class="button">Call Now</a>
-                <a href="https://abaidbutt.com/chat" class="button">Start Live Chat</a>
+                <a href="https://abaidabbott.com/chat" class="button">Start Live Chat</a>
             </div>
         </div>
     </div>
@@ -307,7 +307,7 @@ export const emailTemplates: Record<string, EmailTemplate> = {
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 Abaid Ullah</h1>
+            <h1>🚀 Abaid Abbott</h1>
             <p>Driving Tomorrow's Possibilities</p>
         </div>
         
@@ -381,7 +381,7 @@ export const emailTemplates: Record<string, EmailTemplate> = {
             
             <div style="text-align: center; margin: 30px 0;">
                 <a href="https://calendly.com/bestabaidullahbutt/consultation" class="button">Schedule Free Consultation</a>
-                <a href="https://abaidbutt.com/quote" class="button">Get Project Quote</a>
+                <a href="https://abaidabbott.com/quote" class="button">Get Project Quote</a>
                 <a href="mailto:bestabaidullahbutt@gmail.com" class="button">Send Email</a>
             </div>
             
@@ -389,7 +389,7 @@ export const emailTemplates: Record<string, EmailTemplate> = {
                 <strong>Contact Information:</strong><br>
                 📧 bestabaidullahbutt@gmail.com<br>
                 📱 +92 (311) 1715499<br>
-                🌐 www.abaidbutt.verce.app
+                🌐 www.abaidabbott.verce.app
             </p>
         </div>
     </div>

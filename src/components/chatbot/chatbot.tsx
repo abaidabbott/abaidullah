@@ -251,7 +251,7 @@ export default function Chatbot() {
             {
               type: "email",
               label: "Company Brochure",
-              data: { subject: "Abaidbutt Expereience information ", template: "brochure" },
+              data: { subject: "abaidabbott Expereience information ", template: "brochure" },
             },
             {
               type: "email",
@@ -513,7 +513,7 @@ export default function Chatbot() {
               <div className="text-center py-8">
                 <Sparkles className="w-12 h-12 text-[#0f2658] mx-auto mb-4" />
                 <h4 className="text-white font-medium mb-2">Welcome to Abaid AI!</h4>
-                <p className="text-gray-400 text-sm">I'm here to help you with Abaidbutt services and inquiries.</p>
+                <p className="text-gray-400 text-sm">I'm here to help you with abaidabbott services and inquiries.</p>
               </div>
 
               <input

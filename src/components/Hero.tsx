@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
                         >
                             Hi, I'm{' '}
                             <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
-                                Abaid Ullah
+                                Abaid Abbott
                             </span>
                         </motion.h1>
 
@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
                 >
                     <img
                         src={"./abaid-ullah.jpg"}
-                        alt="Abaid Ullah"
+                        alt="Abaid Abbott"
                         className="rounded-full w-full h-full object-cover"
                     />
                 </motion.div> */}
@@ -138,7 +138,7 @@ const ImageComponent: React.FC = () => {
                     <div className="w-full h-full bg-gray-50 dark:bg-gray-900 rounded-full p-2">
                         <img
                             src={"./abaid-ullah.jpg"}
-                            alt="Abaid Ullah"
+                            alt="Abaid Abbott"
                             className="rounded-full w-full h-full object-cover"
                         />
                     </div>
