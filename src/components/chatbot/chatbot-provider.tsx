@@ -27,7 +27,7 @@ interface ChatbotProviderProps {
 
 export function ChatbotProvider({ children, enabled = true }: ChatbotProviderProps) {
   const [isEnabled, setIsEnabled] = useState(enabled)
-  console.log(isEnabled, "isEnabled in ChatbotProvider")
+
   const toggleChatbot = () => {
     setIsEnabled((prev) => !prev)
   }

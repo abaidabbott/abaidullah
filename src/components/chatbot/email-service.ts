@@ -412,10 +412,7 @@ export class EmailService {
 
     async sendEmail(emailData: EmailData): Promise<{ success: boolean; messageId?: string; error?: string }> {
         try {
-            // In a real implementation, this would integrate with your email service
-            // For now, we'll simulate the email sending process
 
-            console.log("Sending email:", emailData)
 
             // Simulate API call delay
             await new Promise((resolve) => setTimeout(resolve, 1000))

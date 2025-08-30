@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
               <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-lg p-4'>
                 <Linkedin size={24} className="text-gray-100 dark:text-gray-900" />
               </div>
-              <a href="https://linkedin.com/in/abaidabbott" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">linkedin.com/in/abaidabbott</a>
+              <a href="https://www.linkedin.com/in/abaidabbott" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">linkedin.com/in/abaidabbott</a>
             </div>
             <div className="flex items-center space-x-4">
               <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-lg p-4'>
@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="">
-            {true && <Chatbot />}
+            <Chatbot />
 
             {/* <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transform transition duration-300 hover:shadow-xl">
               <div>

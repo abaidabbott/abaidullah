@@ -90,7 +90,7 @@ const predefinedResponses = {
 
 export default function Chatbot() {
   const [state, setState] = useState<ChatbotState>({
-    isOpen: true,
+    isOpen: false,
     isMinimized: false,
     messages: [],
     isTyping: false,
@@ -104,7 +104,7 @@ export default function Chatbot() {
     },
   })
   const [showCalendly, setShowCalendly] = useState(false)
-  const calendlyURL = "https://calendly.com/bestabaidullahbutt"
+  const calendlyURL = import.meta.env.VITE_APP_CALENDLY_URL || "https://calendly.com/abaidabbott/30min"
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -263,7 +263,7 @@ export default function Chatbot() {
           // General AI response
           const newMessage = { role: "user", content: message };
           const updatedMessages = [...state.messages, newMessage];
-          const general = await generalReponse(updatedMessages)
+          const general = await generalReponse(updatedMessages, newMessage)
           response = general.response
 
           actions = general.actions || []
@@ -276,8 +276,19 @@ export default function Chatbot() {
       1000 + Math.random() * 1000,
     ) // Realistic typing delay
   }
-  const generalReponse = async (updatedMessages: any) => {
-    const reply = await axios.post("https://softkai.vercel.app/api/chat-bot", updatedMessages).then((res: any) => res.data)
+  const generalReponse = async (updatedMessages: any, newMessage: any) => {
+    const url = await import.meta.env.VITE_APP_API_URL;
+    const username = await import.meta.env.VITE_APP_USERNAME;
+    const password = await import.meta.env.VITE_APP_PASSWORD;
+
+    const credentials = btoa(`${username}:${password}`); // Base64 encode
+
+    const reply = await axios.post(url, { message: newMessage?.message, updatedMessages }, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Basic ${credentials}`
+      }
+    }).then((res: any) => res.data)
     return reply
   }
 
@@ -285,7 +296,48 @@ export default function Chatbot() {
     if (!state.currentInput.trim()) return
 
     addUserMessage(state.currentInput)
-    processUserMessage(state.currentInput)
+    handleRequest()
+
+
+
+  }
+  const handleRequest = async () => {
+    const url = await import.meta.env.VITE_APP_API_URL;
+    const username = await import.meta.env.VITE_APP_USERNAME;
+    const password = await import.meta.env.VITE_APP_PASSWORD;
+
+    const credentials = btoa(`${username}:${password}`); // Base64 encode
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Basic ${credentials}`
+      },
+      body: JSON.stringify({
+        message: `this is user name ${state.context.userName}, phone number
+      ${state.context.phoneNumber}and email
+      ${state.context.userEmail}, here user message ${state.currentInput}`
+      })
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        const response = data.output
+        addBotMessage(response.response, { actions: response.actions, metadata: { confidence: response.confidence, intent: response.intent } })
+      })
+      .catch(error => {
+
+        processUserMessage(state.currentInput)
+        console.log(error)
+        // addBotMessage(`❌ Failed to send email. Please try again later. ${error.message}`)
+
+
+      });
   }
 
   const handleQuickAction = (query: string) => {
@@ -339,12 +391,25 @@ export default function Chatbot() {
   const handleEmailAction = async (emailData: any) => {
     const userEmail = state.context.userEmail || "abaidullahbuttcs@gmail.com" // fallback if missing
     setState((prev) => ({ ...prev, isTyping: true }))
+    const url = await import.meta.env.VITE_APP_API_URL;
+    const username = await import.meta.env.VITE_APP_USERNAME;
+    const password = await import.meta.env.VITE_APP_PASSWORD;
 
+    const credentials = btoa(`${username}:${password}`); // Base64 encode
     try {
-      await axios.post("https://softkai.vercel.app/api/send-email", {
-        to: userEmail,
-        subject: emailData.subject,
-        body: `Here is the information you requested: ${emailData.template || "No template content."}`,
+      await axios.post(url, {
+
+        message: ` this is the user name ${state.context.userName}
+  Send an email to ${userEmail} with subject "${emailData.subject}". 
+  Use template "${emailData.template}" if provided, otherwise create a professional one. 
+  After sending, schedule a 30-min consultation in Google Calendar at the next available slot.
+  `
+
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Basic ${credentials}`
+        }
       })
 
       addBotMessage(
@@ -353,7 +418,7 @@ export default function Chatbot() {
           actions: [{ type: "email", label: "Send Another", data: { subject: "Follow-up Information" } }],
         }
       )
-      
+
     } catch (error) {
       console.error("Email error", error)
       addBotMessage(`❌ Failed to send email. Please try again later.`)
@@ -484,7 +549,7 @@ export default function Chatbot() {
               <Bot className="w-6 h-6 text-black" />
             </div>
             <div>
-              <h3 className="text-white font-semibold">Abaid AI</h3>
+              <h3 className="text-white font-semibold">Abaid Abbott</h3>
               <div className="flex items-center space-x-1">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="text-xs text-gray-400">Online</span>
@@ -512,7 +577,7 @@ export default function Chatbot() {
 
               <div className="text-center py-8">
                 <Sparkles className="w-12 h-12 text-[#0f2658] mx-auto mb-4" />
-                <h4 className="text-white font-medium mb-2">Welcome to Abaid AI!</h4>
+                <h4 className="text-white font-medium mb-2">Welcome to Abaid Abbott Bot!</h4>
                 <p className="text-gray-400 text-sm">I'm here to help you with abaidabbott services and inquiries.</p>
               </div>
 
@@ -685,7 +750,7 @@ export default function Chatbot() {
                     </button>
                   </div>
 
-                  <div className="mt-2 text-xs text-gray-500 text-center">Powered by Abaid AI • Secure & Private</div>
+                  <div className="mt-2 text-xs text-gray-500 text-center">Powered by Abaid Abbott • Secure & Private</div>
                 </div>}
 
               </>

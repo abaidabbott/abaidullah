@@ -10,7 +10,7 @@ const VisionMission: React.FC = () => {
                 <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-gray-200/20 to-slate-300/10 dark:from-gray-700/20 dark:to-slate-800/10 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-20 left-20 w-64 h-64 bg-gradient-to-tr from-slate-200/20 to-gray-300/10 dark:from-slate-700/20 dark:to-gray-800/10 rounded-full blur-3xl"></div>
             </div>
-            
+
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
                     <motion.div
@@ -23,8 +23,8 @@ const VisionMission: React.FC = () => {
                             Startup-Focused Developer
                         </span>
                     </motion.div>
-                    
-                    <motion.div 
+
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
@@ -37,14 +37,14 @@ const VisionMission: React.FC = () => {
                             My Vision & Approach
                         </h2>
                     </motion.div>
-                    
-                    <motion.p 
+
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
                     >
-                        I thrive in product-based environments, especially startups with bold ideas. From concept to deployment, 
+                        I thrive in product-based environments, especially startups with bold ideas. From concept to deployment,
                         I've built feature-rich apps across diverse domains—all tackled solo, end-to-end.
                     </motion.p>
                 </div>
@@ -65,7 +65,7 @@ const VisionMission: React.FC = () => {
                                 What I Do Best
                             </h3>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {[
                                 {
@@ -124,14 +124,14 @@ const VisionMission: React.FC = () => {
                                 A Win I'm Proud Of
                             </h3>
                         </div>
-                        
+
                         <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
-                                I solved a challenge where <span className="font-bold text-gray-900 dark:text-gray-100">six developers had previously struggled</span>: 
+                                I solved a challenge where <span className="font-bold text-gray-900 dark:text-gray-100">six developers had previously struggled</span>:
                                 building a plugin for a video streaming app that mimicked screen sharing without using a screenshare prompt.
                             </p>
                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                                This involved <span className="font-semibold">custom Nylas integration</span> and creative engineering solutions. 
+                                This involved <span className="font-semibold">custom Nylas & Dyte integration</span> and creative engineering solutions.
                                 The client said it was exactly what they'd envisioned—finally realized.
                             </p>
                             <div className="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
@@ -159,7 +159,7 @@ const VisionMission: React.FC = () => {
                                 My Working Style
                             </h3>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                             <div className="text-center">
                                 <div className="bg-gray-900 dark:bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -183,11 +183,10 @@ const VisionMission: React.FC = () => {
                                 <p className="text-gray-600 dark:text-gray-300 text-sm">Quick to adapt and implement solutions</p>
                             </div>
                         </div>
-                        
+
                         <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-center text-lg">
-                                <span className="font-semibold">Success, for me, isn't just launching</span>—it's fixing bugs that sharpen the product and deepen my learning. 
-                                I believe in continuous improvement and turning challenges into opportunities for growth.
+                                I strongly believe in discipline and hard work as the foundation of meaningful progress. These principles drive me to consistently meet milestones while maintaining clarity and focus. My approach is rooted in structured learning—breaking down complex challenges into actionable steps and executing with precision. I don’t rely on external assistance; instead, I leverage my own strategies, technical expertise, and persistence to architect and deliver robust systems independently.
                             </p>
                         </div>
                     </div>
@@ -207,7 +206,7 @@ const VisionMission: React.FC = () => {
                             Feature-rich applications built end-to-end across diverse industries
                         </p>
                     </div>
-                    
+
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
                         {[
                             { name: "Chit Funds", icon: "💰" },
