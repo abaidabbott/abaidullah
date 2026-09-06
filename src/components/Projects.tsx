@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FiExternalLink } from 'react-icons/fi';
 
 type Project = {
@@ -184,7 +183,7 @@ const projectSections: ProjectSection[] = [
   },
 ];
 
-const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => (
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   <a
     href={project.url}
     target="_blank"
@@ -219,7 +218,7 @@ const Projects: React.FC = () => {
     <section id="projects" className="py-24 bg-gray-50 text-gray-900 border-t border-gray-200">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="space-y-24">
-          {projectSections.map((section, sIdx) => (
+          {projectSections.map((section) => (
             <div key={section.title}>
               <div className="mb-10 flex flex-col gap-4 border-b border-gray-200 pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -231,8 +230,8 @@ const Projects: React.FC = () => {
                 </span>
               </div>
               <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {section.projects.map((project, index) => (
-                  <ProjectCard key={project.name} project={project} index={index} />
+                {section.projects.map((project) => (
+                  <ProjectCard key={project.name} project={project} />
                 ))}
               </div>
             </div>

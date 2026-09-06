@@ -45,7 +45,7 @@ const Skills: React.FC = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {skillGroups.map((group, groupIndex) => (
+          {skillGroups.map((group) => (
             <div 
               key={group.title} 
               className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-md transition-shadow"
@@ -55,7 +55,7 @@ const Skills: React.FC = () => {
                 {group.title}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill, i) => (
+                {group.skills.map((skill) => (
                   <span 
                     key={skill} 
                     className="rounded-lg bg-gray-50 border border-gray-200 px-3 py-1.5 text-sm font-semibold text-gray-700"

@@ -7,7 +7,7 @@ const highlights = ['SaaS products', 'AI agents', 'RAG systems', 'Mobile apps', 
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-white">
+    <section id="home" className="relative pb-16  overflow-hidden bg-white">
       
       <div className="container mx-auto grid min-h-[calc(100vh-140px)] gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center relative z-10">
         <div className="max-w-4xl">
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3">
-            {highlights.map((item, index) => (
+            {highlights.map((item) => (
               <span 
                 key={item} 
                 className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-semibold text-gray-700"

@@ -47,7 +47,7 @@ const About: React.FC = () => {
           <div>
             <h3 className="text-2xl font-bold mb-8">From idea to shipped software</h3>
             <div className="grid gap-6">
-              {journey.map((item, index) => (
+              {journey.map((item) => (
                 <div 
                   key={item.title} 
                   className="flex gap-5 bg-white border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
