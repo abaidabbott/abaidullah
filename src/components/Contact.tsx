@@ -1,7 +1,7 @@
 import React from 'react';
 import { calendlyUrl } from "../lib/booking";
 import { getWhatsAppUrl } from "../lib/contact";
-import { FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin,  FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { TbClockHour4 } from "react-icons/tb";
 import Chatbot from './chatbot/chatbot';
 
@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-start">
-          
+
           <div className="flex flex-col space-y-8">
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center rounded-xl bg-blue-600 hover:bg-blue-700 px-6 py-4 font-bold text-white transition-colors shadow-sm">
@@ -36,10 +36,12 @@ const Contact: React.FC = () => {
 
             <div className="space-y-6">
               {[
-                // { icon: <FaMapMarkerAlt size={20} className="text-blue-600" />, label: 'Lahore, Punjab, Pakistan', href: "https://www.google.com/maps/search/?api=1&query=Lahore%2C+Punjab%2C+Pakistan" },
                 { icon: <FaEnvelope size={20} className="text-blue-600" />, label: 'bestabaidullahbutt@gmail.com', href: "mailto:bestabaidullahbutt@gmail.com" },
                 { icon: <FaGithub size={20} className="text-blue-600" />, label: 'github.com/abaidabbott', href: "https://github.com/abaidabbott" },
                 { icon: <FaLinkedin size={20} className="text-blue-600" />, label: 'linkedin.com/in/abaidabbott', href: "https://www.linkedin.com/in/abaidabbott" },
+                // { icon: <FaTwitter size={20} className="text-blue-600" />, label: 'x.com/abaidabbott', href: "https://x.com/abaidabbott" },
+                // { icon: <FaFacebook size={20} className="text-blue-600" />, label: 'facebook.com/abaidabbott', href: "https://www.facebook.com/abaidabbott/" },
+                { icon: <FaYoutube size={20} className="text-blue-600" />, label: 'youtube.com/@abaidabbott', href: "https://www.youtube.com/@abaidabbott" },
                 { icon: <TbClockHour4 size={22} className="text-blue-600" />, label: '40+ hours/week. Available in UK, UAE, USA (CST) and Canada time zones.', href: null }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center space-x-5">
@@ -59,7 +61,7 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="bg-gray-50 border border-gray-200 rounded-2xl p-2 h-full min-h-[500px] shadow-inner">
-             <Chatbot />
+            <Chatbot />
           </div>
         </div>
       </div>

@@ -2,28 +2,32 @@ import React from 'react';
 
 const skillGroups = [
   {
-    title: 'Frontend',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'UI integration'],
+    title: 'Frontend & Mobile',
+    skills: ['React', 'Next.js', 'React Native', 'Tailwind CSS', 'TypeScript'],
   },
   {
     title: 'Backend',
-    skills: ['Node.js', 'Express', 'Python', 'FastAPI', 'Django', 'Flask'],
+    skills: ['Node.js', 'Python', 'FastAPI', 'Express', 'Django', 'NestJS'],
   },
   {
-    title: 'AI and data',
-    skills: ['RAG', 'GraphRAG', 'OpenAI', 'LangChain', 'Computer vision', 'Pandas'],
+    title: 'AI Architecture & Agents',
+    skills: ['LLMs', 'LangGraph', 'CrewAI', 'RAG (Pinecone, pgvector)', 'vLLM', 'Model Context Protocol (MCP)'],
   },
   {
-    title: 'Mobile',
-    skills: ['React Native', 'iOS / Android', 'NFC', 'Push notifications', 'SQLite'],
+    title: 'Data Science & ML',
+    skills: ['PyTorch', 'Scikit-Learn', 'NLP', 'Computer Vision', 'Pandas'],
   },
   {
-    title: 'Infrastructure',
-    skills: ['AWS', 'Docker', 'CI/CD', 'Supabase', 'Firebase', 'MongoDB'],
+    title: 'Infrastructure & DevOps',
+    skills: ['Kubernetes', 'AWS (ECS, EC2, Bedrock)', 'Docker', 'CI/CD', 'PostgreSQL'],
   },
   {
-    title: 'Automation',
-    skills: ['n8n', 'API integration', 'Workflow design', 'Chatbots', 'Nylas'],
+    title: 'AIOps & Observability',
+    skills: ['Langfuse', 'Arize Phoenix', 'Datadog', 'OpenTelemetry', 'Grafana'],
+  },
+  {
+    title: 'Certifications',
+    skills: ['Claude with Google Vertex AI (Anthropic Academy)'],
   },
 ];
 

@@ -5,7 +5,7 @@ import { calendlyUrl } from '../lib/booking';
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navItems = [
-    { href: '#about', label: 'About & Journey' },
+    { href: '#about', label: 'About' },
     { href: '#skills', label: 'Stack' },
     { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' },

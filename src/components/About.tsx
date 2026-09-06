@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTrophy, FaShieldAlt, FaBriefcase, FaCode, FaRocket } from 'react-icons/fa';
+import {  FaShieldAlt, FaBriefcase, FaCode, FaRocket } from 'react-icons/fa';
 
 const domains = [
   'Fintech & Capital Markets',

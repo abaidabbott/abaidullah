@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaMobileAlt, FaRobot, FaRocket } from 'react-icons/fa';
-import { FiArrowUpRight, FiZap } from 'react-icons/fi';
+import { FiArrowUpRight, FiZap, FiDownload } from 'react-icons/fi';
 import { calendlyUrl } from '../lib/booking';
 
 const highlights = ['SaaS products', 'AI agents', 'RAG systems', 'Mobile apps', 'Automation'];
@@ -29,13 +29,17 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4 items-center">
-            <a href="#projects" className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-8 py-3.5 font-bold text-white transition-all hover:bg-gray-800">
+            {/* <a href="#projects" className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-8 py-3.5 font-bold text-white transition-all hover:bg-gray-800">
               View Projects
               <FiArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
-            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-8 py-3.5 font-bold text-gray-900 transition-all hover:bg-gray-50">
+            </a> */}
+            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-8 py-3.5 font-bold text-gray-900 transition-all hover:bg-gray-50 shadow-sm">
               <FiZap className="text-blue-600" />
               Book a Call
+            </a>
+            <a href="/Abaid_Ullah_CV.pdf" download="Abaid_Ullah_CV.pdf" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-8 py-3.5 font-bold text-gray-900 transition-all hover:bg-gray-50 shadow-sm">
+              <FiDownload className="text-gray-700" />
+              Download CV
             </a>
           </div>
 
