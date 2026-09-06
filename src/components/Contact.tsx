@@ -1,149 +1,65 @@
+import React from 'react';
 import { calendlyUrl } from "../lib/booking";
 import { getWhatsAppUrl } from "../lib/contact";
-// import React, { useEffect, useState } from 'react';
-import { FaMapMarkerAlt, FaEnvelope, FaGithub, FaWhatsapp } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 import { TbClockHour4 } from "react-icons/tb";
 import Chatbot from './chatbot/chatbot';
-import { Linkedin } from 'lucide-react';
-// import { useChatbotContext } from './chatbot/chatbot-provider';
 
 const Contact: React.FC = () => {
-  // const state = useChatbotContext()
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   email: '',
-  //   message: ''
-  // });
-
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  //   const { name, value } = e.target;
-  //   setFormData(prevState => ({
-  //     ...prevState,
-  //     [name]: value
-  //   }));
-  // };
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   // Basic validation
-  //   if (formData.name.trim() === '' || formData.email.trim() === '' || formData.message.trim() === '') {
-  //     alert('Please fill in all fields.');
-  //     return;
-  //   }
-
-  //   // Assuming all fields are valid, construct the mailto link
-  //   const subject = 'Message from Contact Form';
-  //   const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AMessage: ${formData.message}`;
-  //   const mailToLink = `mailto:bestabaidullahbutt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  //   // Redirect to mail client
-  //   window.location.href = mailToLink;
-  // };
-
-
   return (
-    <section id="contact" className="py-20 dark:bg-gray-800 dark:text-gray-100 bg-white text-gray-900 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="md:text-5xl text-3xl font-bold mb-6 tracking-tight">Let's Connect</h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Open a direct channel for applied AI, product engineering, and forward-deployed work.
+    <section id="contact" className="py-24 bg-white text-gray-900 border-t border-gray-200">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <p className="mb-4 text-sm font-bold uppercase tracking-widest text-blue-600">
+            Get In Touch
+          </p>
+          <h2 className="md:text-5xl text-4xl font-extrabold mb-6 tracking-tight text-gray-900">
+            Let's Connect
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600">
+            Open a direct channel for full stack AI software, product engineering and mobile app work.
           </p>
         </div>
 
-        <div className="mb-12 flex flex-col justify-center gap-3 sm:flex-row">
-          <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center rounded-lg bg-gray-900 px-6 py-3 font-semibold text-white dark:bg-white dark:text-gray-900">Book a call with Abaid Ullah</a>
-          <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-900 dark:border-gray-600 dark:text-white">
-            Open WhatsApp
-          </a>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="flex flex-col justify-center space-y-8">
-            <div className="flex items-center space-x-4">
-              <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-sm p-4'>
-                <FaMapMarkerAlt size={24} className="text-gray-100 dark:text-gray-900" />
-              </div>
-              <a href="https://www.google.com/maps/search/?api=1&query=Lahore%2C+Punjab%2C+Pakistan" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-                Lahore, Punjab, Pakistan
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-start">
+          
+          <div className="flex flex-col space-y-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-4">
+              <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center rounded-xl bg-blue-600 hover:bg-blue-700 px-6 py-4 font-bold text-white transition-colors shadow-sm">
+                Book a call
+              </a>
+              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center rounded-xl border border-gray-300 bg-white px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 transition-colors shadow-sm">
+                <FaWhatsapp className="mr-2 text-green-600" size={20} />
+                WhatsApp
               </a>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-sm p-4'>
-                <FaEnvelope size={24} className="text-gray-100 dark:text-gray-900" />
-              </div>
-              <a href="mailto:bestabaidullahbutt@gmail.com" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">bestabaidullahbutt@gmail.com</a>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-sm p-4'>
-                <FaGithub size={24} className="text-gray-100 dark:text-gray-900" />
-              </div>
-              <a href="https://github.com/abaidabbott" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">github.com/abaidabbott</a>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-sm p-4'>
-                <Linkedin size={24} className="text-gray-100 dark:text-gray-900" />
-              </div>
-              <a href="https://www.linkedin.com/in/abaidabbott" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">linkedin.com/in/abaidabbott</a>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-sm p-4'>
-                <FaWhatsapp size={24} className="text-gray-100 dark:text-gray-900" />
-              </div>
-              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="text-lg hover:text-gray-700 dark:hover:text-gray-300 transition-colors">Open WhatsApp</a>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className='bg-gray-900 dark:bg-gray-100 rounded-xl shadow-sm p-4'>
-                <TbClockHour4 size={24} className="text-gray-100 dark:text-gray-900" />
-              </div>
-              <span className="text-lg">Monday - Friday | 12pm - 2am</span>
+
+            <div className="space-y-6">
+              {[
+                { icon: <FaMapMarkerAlt size={20} className="text-blue-600" />, label: 'Lahore, Punjab, Pakistan', href: "https://www.google.com/maps/search/?api=1&query=Lahore%2C+Punjab%2C+Pakistan" },
+                { icon: <FaEnvelope size={20} className="text-blue-600" />, label: 'bestabaidullahbutt@gmail.com', href: "mailto:bestabaidullahbutt@gmail.com" },
+                { icon: <FaGithub size={20} className="text-blue-600" />, label: 'github.com/abaidabbott', href: "https://github.com/abaidabbott" },
+                { icon: <FaLinkedin size={20} className="text-blue-600" />, label: 'linkedin.com/in/abaidabbott', href: "https://www.linkedin.com/in/abaidabbott" },
+                { icon: <TbClockHour4 size={22} className="text-blue-600" />, label: '40+ hours/week. Available in UK, UAE, USA (CST) and Canada time zones.', href: null }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center space-x-5">
+                  <div className='bg-blue-50 border border-blue-100 rounded-xl p-3.5 shrink-0'>
+                    {item.icon}
+                  </div>
+                  {item.href ? (
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-gray-700 hover:text-blue-600 transition-colors">
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span className="text-base font-semibold text-gray-700">{item.label}</span>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="">
-            <Chatbot />
-
-            {/* <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 dark:bg-gray-900 p-8 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transform transition duration-300 hover:shadow-md">
-              <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Name</label>
-                <input 
-                  type="text" 
-                  placeholder='Ex: John Doe' 
-                  name="name" 
-                  value={formData.name} 
-                  onChange={handleChange} 
-                  className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200" 
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Email</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  placeholder='Ex: yourmail@example.com' 
-                  value={formData.email} 
-                  onChange={handleChange} 
-                  className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200" 
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Message</label>
-                <textarea 
-                  placeholder='Write your message or question here' 
-                  name="message" 
-                  value={formData.message} 
-                  onChange={handleChange} 
-                  rows={5}
-                  className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200 resize-none"
-                ></textarea>
-              </div>
-              <button 
-                type="submit" 
-                className="w-full bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 px-6 py-4 rounded-lg font-semibold transform transition duration-300 hover:bg-gray-800 dark:hover:bg-gray-200 hover:scale-105 shadow-sm hover:shadow-md"
-              >
-                Get Started
-              </button>
-            </form> */}
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-2 h-full min-h-[500px] shadow-inner">
+             <Chatbot />
           </div>
         </div>
       </div>

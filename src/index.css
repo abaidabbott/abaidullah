@@ -2,19 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased font-sans selection:bg-blue-500/30 selection:text-blue-900;
   }
-  50% {
-    transform: scale(1.05);
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-gray-900;
   }
 }
 
-body { margin: 0; font-family: 'Inter', sans-serif; }
-h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
-a:focus-visible, button:focus-visible { outline: 3px solid #3b82f6; outline-offset: 4px; }
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-orbit {
+  animation: orbit-spin 20s linear infinite;
+}
+
+.orbit-body {
+  position: absolute;
+  display: block;
+  border-radius: 9999px;
+}
+
+.orbit-body-moon {
+  bottom: 22px;
+  right: 42px;
+  width: 14px;
+  height: 14px;
+  background: #3b82f6;
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbit {
+    animation: none;
+  }
+}
+
+a:focus-visible, button:focus-visible { outline: 2px solid #3b82f6; outline-offset: 4px; }
 .skip-link { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 12px 18px; background: white; color: black; transform: translateY(-160%); }
 .skip-link:focus { transform: translateY(0); }
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

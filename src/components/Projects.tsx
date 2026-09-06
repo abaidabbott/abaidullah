@@ -19,7 +19,7 @@ type ProjectSection = {
 const projectSections: ProjectSection[] = [
   {
     title: 'AI, Automation & Applied Systems',
-    subtitle: 'The work that best shows forward-deployed applied AI capability: product thinking, integrations, workflows and production systems.',
+    subtitle: 'Projects that show applied AI thinking, integrations, workflows and production software.',
     projects: [
       {
         name: 'Twin Companion',
@@ -54,7 +54,7 @@ const projectSections: ProjectSection[] = [
         category: 'GraphRAG',
         url: 'https://theautobot.ca',
         description: 'Enterprise assistant combining vector search and knowledge graphs for verifiable answers.',
-        role: 'Applied AI Engineer',
+        role: 'Full-stack + AI Systems',
       },
       {
         name: 'Alfalah Collection',
@@ -136,7 +136,7 @@ const projectSections: ProjectSection[] = [
   },
   {
     title: 'Mobile Apps',
-    subtitle: 'React Native projects focused on published apps, hardware interaction, business workflows and mobile product delivery.',
+    subtitle: 'React Native and mobile system work for published apps, hardware interaction, business workflows and commerce operations.',
     projects: [
       {
         name: 'Vlore',
@@ -159,71 +159,78 @@ const projectSections: ProjectSection[] = [
         description: 'Community financial pooling app with SQL optimization and contribution tracking.',
         role: 'React Native Developer',
       },
+      {
+        name: 'Royce Lighting',
+        category: 'Retail Commerce',
+        url: 'https://roycelight.com/',
+        description: 'Mobile app work for an e-commerce and retail lighting system that sells residential and commercial products.',
+        role: 'Mobile App Engineer',
+      },
+      {
+        name: 'Keventers Cafe & Wraps',
+        category: 'Food & Beverage',
+        url: 'https://keventerscafeandwraps.com/',
+        description: 'Mobile app work for a multi-store fast food and beverage business system.',
+        role: 'Mobile App Engineer',
+      },
+      {
+        name: 'Nizams Kathi Kabab',
+        category: 'Food & Beverage',
+        url: 'https://nizamkathikabab.com/',
+        description: 'Mobile app work for restaurant ordering and multi-location food operations.',
+        role: 'Mobile App Engineer',
+      },
     ],
   },
 ];
 
 const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => (
-  <motion.a
+  <a
     href={project.url}
     target="_blank"
     rel="noopener noreferrer"
-    initial={{ opacity: 0, y: 16 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }}
-    transition={{ duration: 0.3, delay: Math.min(index * 0.04, 0.2) }}
-    className="group flex min-h-[230px] flex-col justify-between rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-gray-900 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-100"
+    className="group flex min-h-[250px] flex-col justify-between rounded-xl bg-white border border-gray-200 p-8 hover:-translate-y-1 hover:shadow-lg transition-all"
   >
     <div>
-      <div className="mb-5 flex items-start justify-between gap-4">
-        <span className="rounded-md bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+      <div className="mb-6 flex items-start justify-between gap-4">
+        <span className="rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-gray-700">
           {project.category}
         </span>
-        <FiExternalLink className="mt-1 shrink-0 text-gray-400 transition-colors group-hover:text-gray-900 dark:group-hover:text-white" />
+        <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+          <FiExternalLink className="text-gray-500 group-hover:text-white transition-colors" size={18} />
+        </div>
       </div>
-      <h3 className="mb-3 text-2xl font-bold tracking-tight text-gray-950 dark:text-white">
+      <h3 className="mb-3 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors">
         {project.name}
       </h3>
-      <p className="text-sm leading-6 text-gray-600 dark:text-gray-300">
+      <p className="text-sm leading-relaxed text-gray-600">
         {project.description}
       </p>
     </div>
-    <div className="mt-8 border-t border-gray-200 pt-4 dark:border-gray-800">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Role</p>
-      <p className="mt-1 text-sm font-semibold text-gray-800 dark:text-gray-100">{project.role}</p>
+    <div className="mt-8 border-t border-gray-200 pt-5">
+      <p className="text-[11px] font-bold uppercase tracking-widest text-gray-500">Role</p>
+      <p className="mt-1 text-sm font-semibold text-gray-900">{project.role}</p>
     </div>
-  </motion.a>
+  </a>
 );
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="bg-gray-50 py-20 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="mb-14 max-w-4xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
-            Selected Work
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-            Projects grouped by the systems I can lead and ship.
-          </h2>
-          <p className="mt-5 text-base leading-7 text-gray-600 dark:text-gray-300">
-            Clear proof for applied AI, web platforms and mobile products. Each project opens in a new tab.
-          </p>
-        </div>
-
-        <div className="space-y-16">
-          {projectSections.map(section => (
+    <section id="projects" className="py-24 bg-gray-50 text-gray-900 border-t border-gray-200">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="space-y-24">
+          {projectSections.map((section, sIdx) => (
             <div key={section.title}>
-              <div className="mb-6 flex flex-col gap-2 border-b border-gray-200 pb-5 dark:border-gray-800 md:flex-row md:items-end md:justify-between">
+              <div className="mb-10 flex flex-col gap-4 border-b border-gray-200 pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold tracking-tight md:text-3xl">{section.title}</h3>
-                  <p className="mt-2 max-w-3xl text-sm leading-6 text-gray-600 dark:text-gray-300">{section.subtitle}</p>
+                  <h3 className="text-3xl font-extrabold tracking-tight md:text-4xl text-gray-900">{section.title}</h3>
+                  <p className="mt-3 max-w-3xl text-base leading-relaxed text-gray-600">{section.subtitle}</p>
                 </div>
-                <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">
+                <span className="shrink-0 text-sm font-bold text-gray-700 bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm">
                   {section.projects.length} projects
                 </span>
               </div>
-              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {section.projects.map((project, index) => (
                   <ProjectCard key={project.name} project={project} index={index} />
                 ))}

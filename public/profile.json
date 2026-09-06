@@ -5,8 +5,8 @@
     "abaidbutt"
   ],
   "url": "https://abaidbutt.website/",
-  "jobTitle": "Forward-Deployed Applied AI Engineer",
-  "description": "Abaid Ullah builds applied AI products, product systems, mobile apps and automation for global teams, with capability across solution architecture, product engineering and deployment.",
+  "jobTitle": "Full Stack AI Software Engineer",
+  "description": "Abaid Ullah is a Full Stack AI Software Engineer building web apps, mobile apps, Python backends, AI integrations and automation. His career journey focuses on understanding client requirements, writing clear specs, building MVPs, preparing staging deployments, setting up CI/CD and handing over production-ready systems.",
   "location": "Lahore, Punjab, Pakistan",
   "availability": "Available for global teams and remote collaboration",
   "skills": [
@@ -28,7 +28,15 @@
     "Supabase",
     "MongoDB",
     "AWS",
-    "Workflow automation"
+    "Workflow automation",
+    "E-commerce systems",
+    "Retail operations",
+    "Food ordering systems",
+    "Multi-store mobile apps",
+    "Spec-driven development",
+    "MVP development",
+    "Staging deployments",
+    "CI/CD"
   ],
   "sameAs": [
     "https://github.com/abaidabbott",
@@ -45,7 +53,7 @@
   },
   "projectSource": {
     "file": "profile.md",
-    "totalProjects": 18,
+    "totalProjects": 21,
     "syncedAt": "2026-09-06"
   },
   "projects": [
@@ -195,7 +203,7 @@
       "category": "Conversational AI",
       "url": "https://theautobot.ca",
       "description": "Custom-built enterprise GraphRAG assistant application combining vector search and knowledge graphs for verifiable compliance.",
-      "role": "Full-stack + AI (GraphRAG / Neo4j)",
+      "role": "Full-stack + AI Systems",
       "renewalDate": "2026-09-01",
       "status": "Auto-Renew"
     },
@@ -228,6 +236,36 @@
       "role": "React Native Developer",
       "renewalDate": "2025-12-15",
       "status": "Active"
+    },
+    {
+      "position": 19,
+      "name": "Royce Lighting",
+      "category": "E-Commerce & Retail",
+      "url": "https://roycelight.com/",
+      "description": "E-commerce and retail system for selling lighting products across residential and commercial categories.",
+      "role": "Commerce System Engineer",
+      "renewalDate": "2026-09-06",
+      "status": "Active"
+    },
+    {
+      "position": 20,
+      "name": "Keventers Cafe & Wraps",
+      "category": "Food & Beverage Mobile",
+      "url": "https://keventerscafeandwraps.com/",
+      "description": "Mobile app work for a multi-store fast food and beverage business system.",
+      "role": "Mobile App Engineer",
+      "renewalDate": "2026-09-06",
+      "status": "Active"
+    },
+    {
+      "position": 21,
+      "name": "Nizams Kathi Kabab",
+      "category": "Food & Beverage Mobile",
+      "url": "https://nizamkathikabab.com/",
+      "description": "Mobile app work for restaurant ordering and multi-location food operations.",
+      "role": "Mobile App Engineer",
+      "renewalDate": "2026-09-06",
+      "status": "Active"
     }
   ],
   "internationalExperience": {
@@ -245,19 +283,19 @@
     ]
   },
   "preferredRoles": [
-    "Forward-Deployed Engineer",
-    "Senior Applied AI Engineer",
-    "Applied AI Engineer",
+    "Full Stack AI Software Engineer",
+    "Full Stack Developer",
+    "AI Software Engineer",
     "Product Engineer",
-    "Solution Architect",
-    "Technical Product Manager"
+    "React Native Developer",
+    "Backend Engineer"
   ],
   "capabilities": [
-    "Lead technical discovery with product and business teams",
-    "Design applied AI systems from requirements to production",
-    "Build RAG, GraphRAG, computer vision and workflow automation products",
-    "Architect full-stack platforms with React, Next.js, Node.js, Python and cloud services",
-    "Ship React Native mobile apps and production integrations"
+    "Build full stack web products with React, Next.js, Node.js and Python",
+    "Add practical AI features including chatbots, RAG, GraphRAG and computer vision",
+    "Ship React Native mobile apps for real business workflows",
+    "Design APIs, databases and integrations for product teams",
+    "Automate workflows with n8n, Nylas and third-party APIs"
   ],
   "projectGroups": [
     {
@@ -290,8 +328,37 @@
       "projects": [
         "Vlore",
         "Tactlink",
-        "Fuboot (PakBC Committee)"
+        "Fuboot (PakBC Committee)",
+        "Royce Lighting",
+        "Keventers Cafe & Wraps",
+        "Nizams Kathi Kabab"
       ]
+    }
+  ],
+  "careerJourney": [
+    {
+      "step": "Understand technical requirements",
+      "description": "Translate client goals, workflows, constraints and success metrics into a clear technical direction."
+    },
+    {
+      "step": "Spec-driven development",
+      "description": "Create practical specs for screens, APIs, data models, automations and release scope before implementation starts."
+    },
+    {
+      "step": "Build the MVP",
+      "description": "Ship the smallest useful product with clean frontend, backend, mobile or AI workflows that teams can test quickly."
+    },
+    {
+      "step": "Staging deployment",
+      "description": "Prepare safe staging environments for reviews, QA, feedback and client demos before public release."
+    },
+    {
+      "step": "CI/CD and iteration",
+      "description": "Use repeatable build, test and deployment workflows so updates can move faster with less risk."
+    },
+    {
+      "step": "Production handoff",
+      "description": "Launch production systems with documentation, monitoring awareness and a clear path for future improvements."
     }
   ]
 }

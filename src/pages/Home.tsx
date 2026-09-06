@@ -6,7 +6,6 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import Skills from '../components/Skills';
-import VisionMission from '../components/Vision';
 import QuickProof from '../components/QuickProof';
 
 const Home: React.FC = () => {
@@ -15,15 +14,12 @@ const Home: React.FC = () => {
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Header />
       <main id="main-content">
-      <Hero />
-      <QuickProof />
-      <About />
-      <VisionMission />
-      <Skills />
-      <Projects />
-      {/* <Pricing /> */}
-      {/* <FAQ /> */}
-      <Contact />
+        <Hero />
+        <QuickProof />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
       </main>
       <Footer />
     </div>

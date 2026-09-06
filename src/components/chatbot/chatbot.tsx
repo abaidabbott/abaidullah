@@ -31,14 +31,21 @@ interface Message {
   metadata?: {
     confidence?: number
     intent?: string
-    entities?: any[]
+    entities?: unknown[]
   }
+}
+
+type MessageActionData = {
+  subject?: string
+  type?: string
+  url?: string
+  phone?: string
 }
 
 interface MessageAction {
   type: "email" | "call" | "schedule" | "download" | "link"
   label: string
-  data: any
+  data: MessageActionData
 }
 
 interface ChatbotState {
@@ -66,7 +73,7 @@ const quickActions = [
 
 const predefinedResponses = {
   greeting: [
-    "Hello! I'm Abaid, your AI/ML and Full Stack Developer. How can I help you today?",
+    "Hello! I'm Abaid, a Full Stack AI Software Engineer. How can I help you today?",
     "Hi there! Welcome to my portfolio. What can I assist with?",
   ],
   services: {
@@ -105,20 +112,29 @@ export default function Chatbot() {
 
   useEffect(() => {
     if (state.isOpen && state.messages.length === 0) {
-      addBotMessage(predefinedResponses.greeting[0], {
+      const message: Message = {
+        id: Date.now().toString(),
+        type: "bot",
+        content: predefinedResponses.greeting[0],
+        timestamp: new Date(),
         actions: [
           { type: "email", label: "Send Email", data: { subject: "Inquiry from Website" } },
           { type: "schedule", label: "Schedule Call", data: { type: "consultation" } },
         ],
-      })
+      }
+      setState(prev => ({
+        ...prev,
+        messages: [...prev.messages, message],
+        isTyping: false,
+      }))
     }
-  }, [state.isOpen])
+  }, [state.isOpen, state.messages.length])
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [state.messages])
 
-  const addBotMessage = (content: string, options?: { actions?: MessageAction[]; metadata?: any }) => {
+  const addBotMessage = (content: string, options?: { actions?: MessageAction[]; metadata?: Message["metadata"] }) => {
     const message: Message = {
       id: Date.now().toString(),
       type: "bot",

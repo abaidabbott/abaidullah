@@ -3,26 +3,26 @@ import { FaLinkedin, FaGithub, FaYoutube, FaTwitter } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="dark:bg-gray-900 dark:text-gray-100 bg-gray-800 text-gray-100 py-12">
-      <div className="container mx-auto px-4 text-center flex items-center md:justify-between justify-center gap-8 flex-wrap">
-        <p className="text-md md:text-lg">
-          Abaid Ullah · @abaidabbott
+    <footer className="bg-gray-50 text-gray-600 py-12 border-t border-gray-200">
+      <div className="container mx-auto px-6 text-center flex flex-col md:flex-row items-center justify-between gap-6">
+        <p className="text-sm font-medium tracking-wide">
+          <span className="text-gray-900 font-bold">Abaid Ullah</span> · @abaidabbott
         </p>
         <div className="flex justify-center space-x-6">
-          <a href="https://linkedin.com/in/abaidabbott" className="hover:text-gray-300 transition-colors duration-200" aria-label="LinkedIn Profile">
-            <FaLinkedin size={24} />
+          <a href="https://linkedin.com/in/abaidabbott" className="hover:text-blue-600 transition-colors duration-200" aria-label="LinkedIn Profile">
+            <FaLinkedin size={20} />
           </a>
-          <a href="https://github.com/abaidabbott" className="hover:text-gray-300 transition-colors duration-200" aria-label="GitHub Profile">
-            <FaGithub size={24} />
+          <a href="https://github.com/abaidabbott" className="hover:text-gray-900 transition-colors duration-200" aria-label="GitHub Profile">
+            <FaGithub size={20} />
           </a>
-          <a href="https://x.com/abaidabbott" className="hover:text-gray-300 transition-colors duration-200" aria-label="Twitter Profile">
-            <FaTwitter size={24} />
+          <a href="https://x.com/abaidabbott" className="hover:text-blue-400 transition-colors duration-200" aria-label="Twitter Profile">
+            <FaTwitter size={20} />
           </a>
-          <a href="https://www.youtube.com/@abaidabbott" className="hover:text-gray-300 transition-colors duration-200" aria-label="YouTube Channel">
-            <FaYoutube size={24} />
+          <a href="https://www.youtube.com/@abaidabbott" className="hover:text-red-600 transition-colors duration-200" aria-label="YouTube Channel">
+            <FaYoutube size={20} />
           </a>
         </div>
-        <p className="text-sm font-semibold">&copy; {new Date().getFullYear()} Abaid Ullah. All Rights Reserved.</p>
+        <p className="text-xs font-semibold">&copy; {new Date().getFullYear()} Abaid Ullah. All Rights Reserved.</p>
       </div>
     </footer>
   );

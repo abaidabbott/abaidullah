@@ -1,234 +1,119 @@
-import React, { Suspense } from 'react';
-import { FaStar, FaPython, FaReact, FaMobile, FaBrain, FaAws } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import React from 'react';
+import { FaGithub, FaLinkedin, FaMobileAlt, FaRobot, FaRocket } from 'react-icons/fa';
+import { FiArrowUpRight, FiZap } from 'react-icons/fi';
 import { calendlyUrl } from '../lib/booking';
 
-const projectHighlights = ['Snootme', 'RIA Catalyst', 'The AutoBot', 'Vlore App'];
+const highlights = ['SaaS products', 'AI agents', 'RAG systems', 'Mobile apps', 'Automation'];
 
 const Hero: React.FC = () => {
-    return (
-        <section id="home" className="py-20 dark:bg-gray-900 bg-gray-50 text-gray-900 dark:text-gray-100 relative overflow-hidden">
-            {/* Subtle Background Elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-slate-200/30 to-gray-300/20 dark:from-slate-700/20 dark:to-gray-800/10 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-gray-200/30 to-slate-300/20 dark:from-gray-700/20 dark:to-slate-800/10 rounded-full blur-3xl"></div>
-            </div>
+  return (
+    <section id="home" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-white">
+      
+      <div className="container mx-auto grid min-h-[calc(100vh-140px)] gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center relative z-10">
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-xs font-bold uppercase tracking-widest text-gray-700">
+              Abaid Ullah / Available for work
+            </span>
+          </div>
+          
+          <h1 className="text-5xl font-extrabold leading-[1.1] tracking-tight text-gray-900 md:text-6xl lg:text-7xl">
+            Full Stack AI <br className="hidden md:block"/> Software Engineer
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
+            I work across web apps, mobile apps, Python backends, AI integrations and automation. My strength is turning product requirements into shipped software that real teams can use.
+          </p>
 
+          <div className="mt-10 flex flex-wrap gap-4 items-center">
+            <a href="#projects" className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-8 py-3.5 font-bold text-white transition-all hover:bg-gray-800">
+              View Projects
+              <FiArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </a>
+            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-8 py-3.5 font-bold text-gray-900 transition-all hover:bg-gray-50">
+              <FiZap className="text-blue-600" />
+              Book a Call
+            </a>
+          </div>
 
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="w-full md:w-1/2 text-center md:text-left relative z-10"
-                    >
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="mb-6"
-                        >
-                            <span className="inline-block px-4 py-2 bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 rounded-full text-sm font-medium tracking-wide">
-                                Forward-Deployed Applied AI Engineer
-                            </span>
-                        </motion.div>
-
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="md:text-6xl text-4xl font-bold mb-6 leading-tight tracking-tight"
-                        >
-                            Hi, I'm{' '}
-                            <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
-                                Abaid Ullah
-                            </span>
-                        </motion.h1>
-
-                        {/* <p className="mb-5 text-sm text-gray-600 dark:text-gray-300">
-                            Online as <a href="https://github.com/abaidabbott" className="font-semibold underline underline-offset-4">@abaidabbott</a>
-                            {' '}· Also known as @abaidbutt
-                        </p> */}
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="mb-8 text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
-                        >
-                            I design and ship AI-enabled products from messy requirements to working systems: applied AI, full-stack architecture, React Native, automation and production delivery for global teams.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.45 }}
-                            className="mb-8 flex flex-wrap justify-center gap-2 md:justify-start"
-                            aria-label="Featured work"
-                        >
-                            {projectHighlights.map((project) => (
-                                <a
-                                    key={project}
-                                    href="#projects"
-                                    className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:border-gray-900 hover:text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-gray-100 dark:hover:text-white"
-                                >
-                                    {project}
-                                </a>
-                            ))}
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="flex flex-col sm:flex-row gap-4 mb-12"
-                        >
-                            <a
-                                href={calendlyUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center px-8 py-4 bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 font-semibold rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                            >
-                                Book a Call
-                            </a>
-                            <a
-                                href="#projects"
-                                className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:border-gray-900 dark:hover:border-gray-100 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300"
-                            >
-                                View Projects
-                            </a>
-                        </motion.div>
-
-                        {/* Tech Stack Icons */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                            className="flex items-center space-x-6"
-                        >
-                            <span className="text-sm font-medium text-gray-500 dark:text-gray-400 tracking-wide">TECH STACK</span>
-                            <div className="flex space-x-4">
-                                <FaPython className="text-2xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:scale-110 transition-all duration-200" />
-                                <FaReact className="text-2xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:scale-110 transition-all duration-200" />
-                                <FaMobile className="text-2xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:scale-110 transition-all duration-200" />
-                                <FaBrain className="text-2xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:scale-110 transition-all duration-200" />
-                                <FaAws className="text-2xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:scale-110 transition-all duration-200" />
-                            </div>
-                        </motion.div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center relative"
-                    >
-                        <Suspense fallback={<div className="h-16 w-16 animate-pulse rounded-full bg-gray-300 dark:bg-gray-700"></div>}>
-                            <ImageComponent />
-                        </Suspense>
-                    </motion.div>
-                </div>
-
-                {/* <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center relative"
-                >
-                    <img
-                        src={"./abaid-ullah.jpg"}
-                        alt="Abaid Ullah"
-                        className="rounded-full w-full h-full object-cover"
-                    />
-                </motion.div> */}
-
-            </div>
-        </section>
-    );
-};
-
-const ImageComponent: React.FC = () => {
-    return (
-        <div className="relative">
-            <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-80 h-80 md:w-96 md:h-96 relative"
-            >
-                {/* Professional Ring */}
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 dark:from-gray-200 dark:via-gray-300 dark:to-gray-100 rounded-full p-1">
-                    <div className="w-full h-full bg-gray-50 dark:bg-gray-900 rounded-full p-2">
-                        <img
-                            src={"./abaid-ullah.jpg"}
-                            alt="Abaid Ullah"
-                            className="rounded-full w-full h-full object-cover"
-                        />
-                    </div>
-                </div>
-
-                {/* Floating Elements */}
-                <StarRating />
-                <Experience />
-                <ProjectSummary />
-            </motion.div>
+          <div className="mt-12 flex flex-wrap gap-3">
+            {highlights.map((item, index) => (
+              <span 
+                key={item} 
+                className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-semibold text-gray-700"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
-    );
-};
 
-const StarRating: React.FC = () => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-            className="absolute -top-4 -right-4 flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-4 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700"
-        >
-            <div className="flex text-gray-800 dark:text-gray-200 mb-1">
-                {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className="text-sm" />
-                ))}
+        <div className="mx-auto w-full max-w-lg lg:ml-auto relative">
+          <div className="relative mx-auto flex min-h-[500px] items-center justify-center">
+            {/* Orbits */}
+            <div className="hero-orbit absolute h-[380px] w-[380px] rounded-full border border-gray-200 md:h-[460px] md:w-[460px]">
+              <span className="orbit-body orbit-body-moon" />
             </div>
-            <p className="text-gray-900 dark:text-gray-100 text-xs font-bold">4.9/5.0</p>
-            <p className="text-gray-500 dark:text-gray-400 text-xs">Client Rating</p>
-        </motion.div>
-    );
-};
+            <div className="absolute h-[320px] w-[320px] rounded-full border border-dashed border-gray-200 md:h-[380px] md:w-[380px]" />
 
-const ProjectSummary: React.FC = () => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            whileHover={{ scale: 1.05 }}
-            className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 md:block hidden"
-        >
-            <div className="text-center">
-                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">18+</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">Shipped Systems</p>
+            {/* Profile Image */}
+            <div className="relative h-80 w-80 rounded-full p-2 bg-white border border-gray-200 shadow-xl md:h-80 md:w-80 z-10">
+              <div className="h-full w-full overflow-hidden rounded-full bg-gray-100">
+                <img
+                  src="/abaid-ullah.jpg"
+                  alt="Abaid Ullah"
+                  className="h-full w-full object-cover filter contrast-125"
+                />
+              </div>
             </div>
-        </motion.div>
-    );
-};
 
-const Experience: React.FC = () => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            whileHover={{ scale: 1.05 }}
-            className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700"
-        >
-            <div className="text-center">
-                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">5+</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">Years Exp</p>
+            {/* Floating Cards */}
+            <div className="absolute -left-6 top-16 bg-white border border-gray-200 shadow-lg rounded-xl p-4 z-20 hidden sm:block">
+              <div className="flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-lg bg-blue-100 text-blue-600"><FaRobot size={18} /></span>
+                <div>
+                  <p className="text-sm font-bold text-gray-900">AI Systems</p>
+                  <p className="text-xs font-medium text-gray-500">RAG / agents</p>
+                </div>
+              </div>
             </div>
-        </motion.div>
-    );
+
+            <div className="absolute -right-4 top-28 bg-white border border-gray-200 shadow-lg rounded-xl p-4 z-20 hidden sm:block">
+              <div className="flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-lg bg-purple-100 text-purple-600"><FaMobileAlt size={18} /></span>
+                <div>
+                  <p className="text-sm font-bold text-gray-900">SaaS Products</p>
+                  <p className="text-xs font-medium text-gray-500">Web / Mobile</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute bottom-16 left-2 bg-white border border-gray-200 shadow-lg rounded-xl p-4 z-20 hidden sm:block">
+              <div className="flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-lg bg-green-100 text-green-600"><FaRocket size={18} /></span>
+                <div>
+                  <p className="text-sm font-bold text-gray-900">MVP to Launch</p>
+                  <p className="text-xs font-medium text-gray-500">Fast execution</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex justify-center gap-4 relative z-20">
+            <a href="https://github.com/abaidabbott" target="_blank" rel="noopener noreferrer" className="grid h-12 w-12 place-items-center rounded-full bg-white border border-gray-200 text-gray-600 transition-colors hover:text-gray-900 hover:bg-gray-50 shadow-sm" aria-label="GitHub">
+              <FaGithub size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/abaidabbott" target="_blank" rel="noopener noreferrer" className="grid h-12 w-12 place-items-center rounded-full bg-white border border-gray-200 text-gray-600 transition-colors hover:text-gray-900 hover:bg-gray-50 shadow-sm" aria-label="LinkedIn">
+              <FaLinkedin size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;
