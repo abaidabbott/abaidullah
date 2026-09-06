@@ -1,7 +1,7 @@
 import React from 'react';
 import { calendlyUrl } from "../lib/booking";
 import { getWhatsAppUrl } from "../lib/contact";
-import { FaMapMarkerAlt, FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 import { TbClockHour4 } from "react-icons/tb";
 import Chatbot from './chatbot/chatbot';
 
@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
 
             <div className="space-y-6">
               {[
-                { icon: <FaMapMarkerAlt size={20} className="text-blue-600" />, label: 'Lahore, Punjab, Pakistan', href: "https://www.google.com/maps/search/?api=1&query=Lahore%2C+Punjab%2C+Pakistan" },
+                // { icon: <FaMapMarkerAlt size={20} className="text-blue-600" />, label: 'Lahore, Punjab, Pakistan', href: "https://www.google.com/maps/search/?api=1&query=Lahore%2C+Punjab%2C+Pakistan" },
                 { icon: <FaEnvelope size={20} className="text-blue-600" />, label: 'bestabaidullahbutt@gmail.com', href: "mailto:bestabaidullahbutt@gmail.com" },
                 { icon: <FaGithub size={20} className="text-blue-600" />, label: 'github.com/abaidabbott', href: "https://github.com/abaidabbott" },
                 { icon: <FaLinkedin size={20} className="text-blue-600" />, label: 'linkedin.com/in/abaidabbott', href: "https://www.linkedin.com/in/abaidabbott" },

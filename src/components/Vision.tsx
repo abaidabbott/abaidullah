@@ -127,7 +127,7 @@ const VisionMission: React.FC = () => {
 
                         <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
-                                I solved a challenge where <span className="font-bold text-gray-900 dark:text-gray-100">six developers had previously struggled</span>:
+                                I solved a challenge where <span className="font-bold text-gray-900 dark:text-gray-100">developers had previously struggled</span>:
                                 building a plugin for a video streaming app that mimicked screen sharing without using a screenshare prompt.
                             </p>
                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
