@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaMobileAlt, FaRobot, FaRocket } from 'react-icons/fa';
-import { FiArrowUpRight, FiZap, FiDownload } from 'react-icons/fi';
+import {  FiZap, FiDownload } from 'react-icons/fi';
 import { calendlyUrl } from '../lib/booking';
 
 const highlights = ['SaaS products', 'AI agents', 'RAG systems', 'Mobile apps', 'Automation'];
