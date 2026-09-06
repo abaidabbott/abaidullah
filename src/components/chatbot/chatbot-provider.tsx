@@ -3,6 +3,7 @@
 import type React from "react"
 import { createContext, useContext, useState } from "react"
 // import Chatbot from "./chatbot"
+// import Chatbot from "./chatbot"
 
 interface ChatbotContextType {
   isEnabled: boolean

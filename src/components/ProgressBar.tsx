@@ -41,12 +41,12 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ label, percentage }) => {
 
 const ProgressBars: React.FC = () => {
   const progressData = [
-    { label: 'Expertise in MERN Stack Development', percentage: 85 },
-    { label: 'Proficient in Full Stack Development', percentage: 80 },
-    { label: 'Quality Web & Mobile Application Development', percentage: 87 },
-    { label: 'E-commerce / CMS Development', percentage: 75 },
-    { label: 'API Development & Integration', percentage: 75 },
-    { label: 'On-time Delivery', percentage: 90 },
+    { label: 'Senior Full-Stack Development (MERN)', percentage: 95 },
+    { label: 'AI/ML & RAG System Integration', percentage: 90 },
+    { label: 'Mobile App Development (React Native)', percentage: 92 },
+    { label: 'Cloud Architecture & DevOps (AWS)', percentage: 85 },
+    { label: 'API Design & Microservices', percentage: 88 },
+    { label: 'System Design & Unit Testing', percentage: 85 },
   ];
 
   return (

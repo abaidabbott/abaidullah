@@ -29,7 +29,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Full-stack developer and AI engineer passionate about creating intelligent, scalable solutions
+            Forward-deployed applied AI engineer with 5 years of experience across product architecture, full-stack systems, React Native and AI integrations. I work close to users and teams: clarifying requirements, designing the solution, shipping the product and staying with it through deployment.
           </motion.p>
         </div>
         
@@ -39,7 +39,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="flex items-center mb-6">
                 <div className="bg-gray-900 dark:bg-gray-100 p-3 rounded-xl mr-4">
@@ -48,8 +48,7 @@ const About: React.FC = () => {
                 <h3 className="text-xl font-bold">Full-Stack Development</h3>
               </div>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Started my journey in 2020 as a React.js developer and evolved into a comprehensive MERN stack developer. 
-                Specialized in building scalable web applications and mobile solutions with modern frameworks and best practices.
+                I turn unclear product requirements into working systems: technical discovery, architecture, API design, frontend delivery, backend implementation and release planning.
               </p>
             </motion.div>
 
@@ -57,7 +56,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="flex items-center mb-6">
                 <div className="bg-gray-900 dark:bg-gray-100 p-3 rounded-xl mr-4">
@@ -66,8 +65,7 @@ const About: React.FC = () => {
                 <h3 className="text-xl font-bold">Python & Backend Expertise</h3>
               </div>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Proficient in Python ecosystem with FastAPI, Django, and Flask for building robust backend systems. 
-                Experience in API development, database management with MongoDB, MySQL, and PostgreSQL.
+                I build Python and Node.js backends with FastAPI, Django, Flask, MongoDB, MySQL and PostgreSQL, with enough product context to make the system useful rather than just functional.
               </p>
             </motion.div>
 
@@ -75,7 +73,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="flex items-center mb-6">
                 <div className="bg-gray-900 dark:bg-gray-100 p-3 rounded-xl mr-4">
@@ -84,8 +82,7 @@ const About: React.FC = () => {
                 <h3 className="text-xl font-bold">AI/ML & Automation</h3>
               </div>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Specialized in AI/ML solutions including chatbot development, RAG systems, model fine-tuning, and voice agents. 
-                Expert in workflow automation with n8n, agentic AI systems, and data analysis with Pandas, NumPy, and Scikit-learn.
+                I design applied AI workflows including RAG, GraphRAG, chatbots, computer vision, Nylas integrations, automation agents and LLM-backed product features.
               </p>
             </motion.div>
 
@@ -93,7 +90,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="flex items-center mb-6">
                 <div className="bg-gray-900 dark:bg-gray-100 p-3 rounded-xl mr-4">
@@ -114,7 +111,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 md:mt-0"
           >
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-md border border-gray-200 dark:border-gray-700">
               <h3 className="text-2xl font-bold mb-8 text-center text-gray-800 dark:text-white">
                 Core Competencies
               </h3>
@@ -126,7 +123,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-8 bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg"
+              className="mt-8 bg-white dark:bg-gray-800 rounded-lg p-8 border border-gray-200 dark:border-gray-700 shadow-sm"
             >
               <h4 className="text-lg font-bold mb-6 text-center text-gray-800 dark:text-white">
                 Technology Stack
@@ -148,7 +145,7 @@ const About: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: 0.9 + (index * 0.1) }}
                     whileHover={{ scale: 1.1 }}
-                    className="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
+                    className="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-md hover:shadow-sm transition-all duration-200"
                   >
                     <div className={`text-2xl mb-2 ${tech.color}`}>
                       {tech.icon}

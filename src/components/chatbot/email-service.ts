@@ -1,5 +1,4 @@
-
-
+import { calendlyUrl } from "../../lib/booking";
 export interface EmailTemplate {
     id: string
     name: string
@@ -57,7 +56,7 @@ export const emailTemplates: Record<string, EmailTemplate> = {
                 <h3>📋 Project Details Form</h3>
                 <p>Please fill out our comprehensive project form to help us understand your requirements:</p>
                 
-                <a href="https://abaidabbott.com/quote-form?session={{sessionId}}" class="button">
+                <a href="https://abaidbutt.website/#contact" class="button">
                     Complete Project Form →
                 </a>
                 
@@ -82,14 +81,14 @@ export const emailTemplates: Record<string, EmailTemplate> = {
                 <p>Our team is available to answer any questions:</p>
                 <ul>
                     <li>📧 Email: bestabaidullahbutt@gmail.com</li>
-                    <li>📱 Phone: +92 (311) 1715499</li>
-                    <li>💬 Live Chat: Available on our website</li>
+                    <li>💬 Live Chat: Available on the website</li>
+                    <li>WhatsApp: Open it from the website contact button so the correct regional number is selected</li>
                 </ul>
             </div>
         </div>
         
         <div class="footer">
-            <p>Best regards,<br><strong>Abaid Butt</strong></p>
+            <p>Best regards,<br><strong>Abaid Ullah</strong></p>
             <p>Driving Tomorrow's Possibilities</p>
         </div>
     </div>
@@ -115,8 +114,6 @@ export const emailTemplates: Record<string, EmailTemplate> = {
         .header { background: linear-gradient(135deg, #14b8a6, #06b6d4); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
         .content { background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; }
         .contact-card { background: white; padding: 20px; margin: 15px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-left: 4px solid #14b8a6; }
-        .office-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
-        .office-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .button { display: inline-block; background: linear-gradient(135deg, #14b8a6, #06b6d4); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 5px; }
     </style>
 </head>
@@ -135,55 +132,26 @@ export const emailTemplates: Record<string, EmailTemplate> = {
             <div class="contact-card">
                 <h3>🚀 Immediate Support</h3>
                 <p><strong>📧 Email:</strong> bestabaidullahbutt@gmail.com</p>
-                <p><strong>📱 Phone:</strong> +92 (311) 1715499</p>
-                <p><strong>💬 Live Chat:</strong> Available 24/7 on our website</p>
+                <p><strong>💬 Live Chat:</strong> Available on the website</p>
+                <p><strong>WhatsApp:</strong> Open it from the website contact button so the correct regional number is selected.</p>
                 <p><strong>⏰ Response Time:</strong> Within 2 hours during business hours</p>
             </div>
             
             <div class="contact-card">
                 <h3>📅 Schedule a Meeting</h3>
                 <p>Book a consultation that fits your schedule:</p>
-                <a href="https://calendly.com/bestabaidullahbutt/consultation" class="button">Book Free Consultation</a>
-                <a href="https://calendly.com/bestabaidullahbutt/technical-deep-dive" class="button">Technical Deep Dive</a>
+                <a href="${calendlyUrl}" class="button">Book a Meeting</a>
             </div>
             
-            <h3>🌍 Global Offices</h3>
-            <div class="office-grid">
-                <div class="office-card">
-                    <h4>🇺🇸 San Francisco (HQ)</h4>
-                    <p>123 Innovation Drive, Suite 500<br>San Francisco, CA 94107</p>
-                    <p>📞 +92 (311) 1715499</p>
-                    <p>🕘 9AM - 6PM PST</p>
-                </div>
-                
-                <div class="office-card">
-                    <h4>🇨🇦 Toronto</h4>
-                    <p>456 Tech Street, Floor 12<br>Toronto, ON M5V 3A8</p>
-                    <p>📞 +1 (416) 555-0123</p>
-                    <p>🕘 9AM - 6PM EST</p>
-                </div>
-                
-                <div class="office-card">
-                    <h4>🇬🇧 London</h4>
-                    <p>789 Innovation Lane<br>London, SW1A 1AA</p>
-                    <p>📞 +44 20 7123 4567</p>
-                    <p>🕘 9AM - 5PM GMT</p>
-                </div>
-                
-                <div class="office-card">
-                    <h4>🇸🇬 Singapore</h4>
-                    <p>321 Marina Bay Drive<br>Singapore 018982</p>
-                    <p>📞 +65 6123 4567</p>
-                    <p>🕘 9AM - 6PM SGT</p>
-                </div>
-            </div>
-            
+            <h3>🌍 International Collaboration</h3>
+            <p>I have worked with international teams and companies in the USA, Canada, Europe and Asia, including the UAE. My experience includes work with Summitcrew and Snootme.</p>
+
             <div class="contact-card">
                 <h3>🎯 What's Your Next Step?</h3>
                 <p>Choose the option that works best for you:</p>
                 <a href="mailto:bestabaidullahbutt@gmail.com?subject=Project Inquiry" class="button">Send Email</a>
-                <a href="tel:+923111715499" class="button">Call Now</a>
-                <a href="https://abaidabbott.com/chat" class="button">Start Live Chat</a>
+                <a href="https://abaidbutt.website/#contact" class="button">Open WhatsApp</a>
+                <a href="https://abaidbutt.website/#contact" class="button">Start Live Chat</a>
             </div>
         </div>
     </div>
@@ -223,35 +191,14 @@ export const emailTemplates: Record<string, EmailTemplate> = {
         <div class="content">
             <p>Hello {{userName}},</p>
             
-            <p>Thank you for your interest in scheduling a consultation with me! Choose the meeting type that best fits your needs:</p>
-            
+            <p>Thank you for your interest in scheduling a meeting with me! Open my Calendly page to see the available meeting options and times.</p>
+
             <div class="meeting-option">
-                <h3>🆓 Free Consultation (30 minutes)</h3>
-                <p><strong>Perfect for:</strong> Initial project discussion, service overview, basic questions</p>
-                <p><strong>What we'll cover:</strong> Your project goals, our services, next steps</p>
-                <a href="https://calendly.com/bestabaidullahbutt/free-consultation?utm_source=email&utm_campaign=chatbot" class="button">
-                    Book Free Consultation →
-                </a>
+                <h3>Meet with Abaid Ullah</h3>
+                <p>Choose an available time and confirm your booking on Calendly.</p>
+                <a href="${calendlyUrl}" class="button">Book a Meeting →</a>
             </div>
-            
-            <div class="meeting-option">
-                <h3>🔧 Technical Deep Dive (60 minutes)</h3>
-                <p><strong>Perfect for:</strong> Detailed technical requirements, architecture planning, complex projects</p>
-                <p><strong>What we'll cover:</strong> Technical specifications, timeline, resource planning</p>
-                <a href="https://calendly.com/bestabaidullahbutt/technical-deep-dive?utm_source=email&utm_campaign=chatbot" class="button">
-                    Book Technical Session →
-                </a>
-            </div>
-            
-            <div class="meeting-option">
-                <h3>💼 Executive Briefing (45 minutes)</h3>
-                <p><strong>Perfect for:</strong> Strategic planning, budget discussions, stakeholder alignment</p>
-                <p><strong>What we'll cover:</strong> Business impact, ROI, strategic roadmap</p>
-                <a href="https://calendly.com/bestabaidullahbutt/executive-briefing?utm_source=email&utm_campaign=chatbot" class="button">
-                    Book Executive Meeting →
-                </a>
-            </div>
-            
+
             <div class="prep-list">
                 <h3>📋 How to Prepare for Your Meeting</h3>
                 <ul>
@@ -273,7 +220,7 @@ export const emailTemplates: Record<string, EmailTemplate> = {
                 </ol>
             </div>
             
-            <p><strong>Questions before scheduling?</strong> Reply to this email or call us at +92 (311) 1715499</p>
+            <p><strong>Questions before scheduling?</strong> Reply to this email or open WhatsApp from the website contact button.</p>
         </div>
     </div>
 </body>
@@ -299,46 +246,25 @@ export const emailTemplates: Record<string, EmailTemplate> = {
         .content { background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; }
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
         .service-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { background: white; padding: 15px; border-radius: 8px; text-align: center; border-top: 3px solid #14b8a6; }
         .button { display: inline-block; background: linear-gradient(135deg, #14b8a6, #06b6d4); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 10px 5px; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 Abaid Abbott</h1>
+            <h1>🚀 Abaid Ullah</h1>
             <p>Driving Tomorrow's Possibilities</p>
         </div>
         
         <div class="content">
             <p>Hello {{userName}},</p>
             
-            <p>Thank you for your interest! Here's everything you need to know about our company and capabilities.</p>
+            <p>Thank you for your interest! Here is an overview of my experience and services.</p>
             
             <h3>🌟 About Me</h3>
-            <p>We're a global technology company specializing in innovative solutions that transform businesses and drive digital excellence across industries worldwide. With over 50+ experts and offices in 4 countries, we deliver cutting-edge technology solutions.</p>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3 style="color: #14b8a6; margin: 0;">50+</h3>
-                    <p style="margin: 5px 0;">Expert Team</p>
-                </div>
-                <div class="stat-card">
-                    <h3 style="color: #14b8a6; margin: 0;">1000+</h3>
-                    <p style="margin: 5px 0;">Projects Delivered</p>
-                </div>
-                <div class="stat-card">
-                    <h3 style="color: #14b8a6; margin: 0;">50+</h3>
-                    <p style="margin: 5px 0;">Countries Served</p>
-                </div>
-                <div class="stat-card">
-                    <h3 style="color: #14b8a6; margin: 0;">99%</h3>
-                    <p style="margin: 5px 0;">Client Satisfaction</p>
-                </div>
-            </div>
-            
-            <h3>💼 Our Services</h3>
+            <p>I’m Abaid Ullah, a full-stack developer and AI engineer. I have worked with international teams and companies in the USA, Canada, Europe and Asia, including the UAE. My experience includes work with Summitcrew and Snootme.</p>
+
+            <h3>💼 My Services</h3>
             <div class="service-grid">
                 <div class="service-card">
                     <h4>🌐 Web Apps</h4>
@@ -369,7 +295,7 @@ export const emailTemplates: Record<string, EmailTemplate> = {
             <h3>🏆 Why Choose Me?</h3>
             <ul>
                 <li><strong>Proven Expertise:</strong> 10+ years of industry experience</li>
-                <li><strong>Global Reach:</strong> Teams across 4 continents</li>
+                <li><strong>International Experience:</strong> Collaboration with teams and companies across the USA, Canada, Europe and Asia, including the UAE</li>
                 <li><strong>Agile Methodology:</strong> Fast, iterative development</li>
                 <li><strong>24/7 Support:</strong> Round-the-clock assistance</li>
                 <li><strong>Scalable Solutions:</strong> From startups to enterprises</li>
@@ -380,16 +306,16 @@ export const emailTemplates: Record<string, EmailTemplate> = {
             <p>Let's discuss how we can help transform your business:</p>
             
             <div style="text-align: center; margin: 30px 0;">
-                <a href="https://calendly.com/bestabaidullahbutt/consultation" class="button">Schedule Free Consultation</a>
-                <a href="https://abaidabbott.com/quote" class="button">Get Project Quote</a>
+                <a href="${calendlyUrl}" class="button">Book a Meeting</a>
+                <a href="https://abaidbutt.website/#contact" class="button">Get Project Quote</a>
                 <a href="mailto:bestabaidullahbutt@gmail.com" class="button">Send Email</a>
             </div>
             
             <p style="text-align: center; margin-top: 30px;">
                 <strong>Contact Information:</strong><br>
                 📧 bestabaidullahbutt@gmail.com<br>
-                📱 +92 (311) 1715499<br>
-                🌐 www.abaidabbott.verce.app
+                WhatsApp: open from the website contact button<br>
+                🌐 abaidbutt.website
             </p>
         </div>
     </div>

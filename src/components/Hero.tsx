@@ -1,6 +1,9 @@
 import React, { Suspense } from 'react';
 import { FaStar, FaPython, FaReact, FaMobile, FaBrain, FaAws } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { calendlyUrl } from '../lib/booking';
+
+const projectHighlights = ['Snootme', 'RIA Catalyst', 'The AutoBot', 'Vlore App'];
 
 const Hero: React.FC = () => {
     return (
@@ -27,7 +30,7 @@ const Hero: React.FC = () => {
                             className="mb-6"
                         >
                             <span className="inline-block px-4 py-2 bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 rounded-full text-sm font-medium tracking-wide">
-                                Full-Stack Developer & AI Engineer
+                                Forward-Deployed Applied AI Engineer
                             </span>
                         </motion.div>
 
@@ -43,18 +46,37 @@ const Hero: React.FC = () => {
                             </span>
                         </motion.h1>
 
+                        {/* <p className="mb-5 text-sm text-gray-600 dark:text-gray-300">
+                            Online as <a href="https://github.com/abaidabbott" className="font-semibold underline underline-offset-4">@abaidabbott</a>
+                            {' '}· Also known as @abaidbutt
+                        </p> */}
+
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="mb-8 text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
                         >
-                            Crafting intelligent solutions with{' '}
-                            <span className="font-semibold text-gray-900 dark:text-gray-100">Python</span>,{' '}
-                            <span className="font-semibold text-gray-900 dark:text-gray-100">MERN Stack</span>,{' '}
-                            <span className="font-semibold text-gray-900 dark:text-gray-100">React Native</span>, and{' '}
-                            <span className="font-semibold text-gray-900 dark:text-gray-100">AI/ML</span> technologies
+                            I design and ship AI-enabled products from messy requirements to working systems: applied AI, full-stack architecture, React Native, automation and production delivery for global teams.
                         </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.45 }}
+                            className="mb-8 flex flex-wrap justify-center gap-2 md:justify-start"
+                            aria-label="Featured work"
+                        >
+                            {projectHighlights.map((project) => (
+                                <a
+                                    key={project}
+                                    href="#projects"
+                                    className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:border-gray-900 hover:text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-gray-100 dark:hover:text-white"
+                                >
+                                    {project}
+                                </a>
+                            ))}
+                        </motion.div>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -63,10 +85,12 @@ const Hero: React.FC = () => {
                             className="flex flex-col sm:flex-row gap-4 mb-12"
                         >
                             <a
-                                href="#contact"
+                                href={calendlyUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center px-8 py-4 bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 font-semibold rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                             >
-                                Let's Collaborate
+                                Book a Call
                             </a>
                             <a
                                 href="#projects"
@@ -114,7 +138,7 @@ const Hero: React.FC = () => {
                 >
                     <img
                         src={"./abaid-ullah.jpg"}
-                        alt="Abaid Abbott"
+                        alt="Abaid Ullah"
                         className="rounded-full w-full h-full object-cover"
                     />
                 </motion.div> */}
@@ -138,7 +162,7 @@ const ImageComponent: React.FC = () => {
                     <div className="w-full h-full bg-gray-50 dark:bg-gray-900 rounded-full p-2">
                         <img
                             src={"./abaid-ullah.jpg"}
-                            alt="Abaid Abbott"
+                            alt="Abaid Ullah"
                             className="rounded-full w-full h-full object-cover"
                         />
                     </div>
@@ -183,8 +207,8 @@ const ProjectSummary: React.FC = () => {
             className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 md:block hidden"
         >
             <div className="text-center">
-                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">50+</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">Projects</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">18+</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Shipped Systems</p>
             </div>
         </motion.div>
     );

@@ -1,6 +1,7 @@
-
+import { calendlyUrl, registerBookingTool } from "../../lib/booking"
+import type { BookingContext } from "../../lib/booking"
+import { getWhatsAppUrl } from "../../lib/contact"
 import { useState, useRef, useEffect } from "react"
-
 import {
   MessageCircle,
   X,
@@ -18,9 +19,7 @@ import {
   ThumbsDown,
   RotateCcw,
   Sparkles,
-  Brain,
 } from "lucide-react"
-import axios from "axios"
 import CalendlyModal from "./CalendlyModal"
 
 interface Message {
@@ -28,7 +27,6 @@ interface Message {
   type: "user" | "bot"
   content: string
   timestamp: Date
-  isTyping?: boolean
   actions?: MessageAction[]
   metadata?: {
     confidence?: number
@@ -68,24 +66,15 @@ const quickActions = [
 
 const predefinedResponses = {
   greeting: [
-    "Hello! I'm Abaid, your AI assistant. How can I help you today?",
-    "Hi there! Welcome to my portfolio. What can I assist you with?",
-    "Greetings! I'm here to help you with any questions about our services.",
+    "Hello! I'm Abaid, your AI/ML and Full Stack Developer. How can I help you today?",
+    "Hi there! Welcome to my portfolio. What can I assist with?",
   ],
   services: {
     web: "We offer comprehensive Web Apps services including React, Next.js, Vue.js, and full-stack solutions. Would you like to know more about a specific technology?",
-    mobile:
-      "Our mobile development expertise covers iOS, Android, React Native, and Flutter. We can build native or cross-platform apps. What type of mobile solution are you looking for?",
-    ai: "We specialize in AI/ML solutions including chatbots, predictive analytics, computer vision, and NLP. What AI challenge are you trying to solve?",
-    devops:
-      "Our DevOps services include CI/CD, cloud migration, containerization, and infrastructure automation. How can we help optimize your development workflow?",
-    security:
-      "We provide cybersecurity solutions including penetration testing, security audits, and compliance consulting. What security concerns do you have?",
+    mobile: "Our mobile development expertise covers iOS, Android, React Native, and Flutter. We can build native or cross-platform apps. What type of mobile solution are you looking for?",
   },
-  contact:
-    "You can reach us through multiple channels:\n📧 Email: bestabaidullahbutt@gmail.com\n📞 Phone: +92 (311) 1715499\n💬 Live Chat: Right here!\n📅 Schedule: Book a consultation\n\nWould you like me to help you with any of these options?",
-  quote:
-    "I'd be happy to help you get a project quote! To provide an accurate estimate, I'll need some details:\n\n1. What type of project? (Web, Mobile, AI, etc.)\n2. Project scope and timeline\n3. Your budget range\n4. Any specific requirements\n\nShould I send you our detailed project form via email?",
+  contact: "You can reach me through multiple channels:\n📧 Email: bestabaidullahbutt@gmail.com\n💬 Live Chat: Right here\n📅 Schedule: Book a consultation\nWhatsApp: use the website button and it will open the best number for your region.",
+  quote: "I'd be happy to help you get a project quote! To provide an accurate estimate, I'll need some details:\n\n1. What type of project? (Web, Mobile, AI, etc.)\n2. Project scope and timeline\n3. Your budget range\n4. Any specific requirements",
 }
 
 export default function Chatbot() {
@@ -104,14 +93,18 @@ export default function Chatbot() {
     },
   })
   const [showCalendly, setShowCalendly] = useState(false)
-  const calendlyURL = import.meta.env.VITE_APP_CALENDLY_URL || "https://calendly.com/abaidabbott/30min"
+  const calendlyURL = calendlyUrl
+
+  useEffect(() => registerBookingTool(
+    (document as Document & { modelContext?: BookingContext }).modelContext,
+    () => setShowCalendly(true),
+  ), [])
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (state.isOpen && state.messages.length === 0) {
-      // Initialize with greeting
       addBotMessage(predefinedResponses.greeting[0], {
         actions: [
           { type: "email", label: "Send Email", data: { subject: "Inquiry from Website" } },
@@ -122,12 +115,8 @@ export default function Chatbot() {
   }, [state.isOpen])
 
   useEffect(() => {
-    scrollToBottom()
-  }, [state.messages])
-
-  const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+  }, [state.messages])
 
   const addBotMessage = (content: string, options?: { actions?: MessageAction[]; metadata?: any }) => {
     const message: Message = {
@@ -163,181 +152,68 @@ export default function Chatbot() {
 
   const processUserMessage = async (message: string) => {
     const lowerMessage = message.toLowerCase()
-
-    // Simulate typing delay
     setState((prev) => ({ ...prev, isTyping: true }))
 
-    setTimeout(
-      async () => {
-        let response = ""
-        let actions: MessageAction[] = []
-        const metadata = { confidence: 0.8, intent: "general" }
+    // Quick Rules
+    if (lowerMessage.includes("service") || lowerMessage.includes("what do you")) {
+      addBotMessage("I handle a lot of tech stuff:\n\n🌐 Web & Mobile - React, Next.js, React Native, Flutter\n🤖 AI & ML - Custom AI models and smart automation\n☁️ DevOps & Cloud - Infrastructure and Monitoring\n🔒 Security - Audits and secure auth\n🎨 UI/UX - User centered design\n\nI recently built a HIPAA patient portal and a companion mobile app. Anything specific you're looking for?", {
+        actions: [
+          { type: "email", label: "Get Details", data: { subject: "Service Inquiry" } },
+          { type: "schedule", label: "Discuss Services", data: { type: "consultation" } },
+        ],
+        metadata: { intent: "services", confidence: 1.0 }
+      })
+      return
+    }
 
-        // Intent detection and response generation
-        if (lowerMessage.includes("service") || lowerMessage.includes("what do you")) {
-          response =
-            "We offer a comprehensive range of technology services:\n\n🌐 **Web Apps** - React, Next.js, Vue.js\n📱 **Mobile Apps** - iOS, Android, React Native\n🤖 **AI & Machine Learning** - Custom AI solutions\n☁️ **DevOps & Cloud** - AWS, Digital Ocean, GCP and VPS\n🔒 **Cybersecurity** - Security audits & consulting\n🎨 **UI/UX Design** - User-centered design\n\nWhich service interests you most?"
-          metadata.intent = "services_inquiry"
-          actions = [
-            { type: "email", label: "Get Service Details", data: { subject: "Service Information Request" } },
-            { type: "schedule", label: "Discuss Services", data: { type: "services_consultation" } },
-          ]
-        } else if (lowerMessage.includes("quote") || lowerMessage.includes("price") || lowerMessage.includes("cost")) {
-          response = predefinedResponses.quote
-          metadata.intent = "quote_request"
-          actions = [
-            {
-              type: "email",
-              label: "Send Quote Form",
-              data: { subject: "Project Quote Request", template: "quote_form" },
-            },
-            { type: "schedule", label: "Quote Discussion", data: { type: "quote_consultation" } },
-          ]
-        } else if (
-          lowerMessage.includes("contact") ||
-          lowerMessage.includes("reach") ||
-          lowerMessage.includes("phone")
-        ) {
-          response = predefinedResponses.contact
-          metadata.intent = "contact_inquiry"
-          actions = [
-            {
-              type: "email",
-              label: "Send Contact Info",
-              data: { subject: "Contact Information", template: "contact_info" },
-            },
-            { type: "call", label: "Call Now", data: { phone: "+92 (311) 1715499" } },
-          ]
-        } else if (
-          lowerMessage.includes("schedule") ||
-          lowerMessage.includes("meeting") ||
-          lowerMessage.includes("call")
-        ) {
-          response =
-            "I'd be happy to help you schedule a consultation! We offer:\n\n📅 **Free Consultation** (30 min) - Project discussion\n🎯 **Technical Deep Dive** (60 min) - Detailed planning\n💼 **Executive Briefing** (45 min) - Strategic overview\n\nWhat type of meeting would work best for you?"
-          metadata.intent = "schedule_request"
-          actions = [
-            { type: "schedule", label: "Book Free Consultation", data: { type: "free_consultation" } },
-            {
-              type: "email",
-              label: "Send Calendar Link",
-              data: { subject: "Meeting Scheduler", template: "calendar_link" },
-            },
-          ]
-        } else if (lowerMessage.includes("web") || lowerMessage.includes("website")) {
-          response = predefinedResponses.services.web
-          metadata.intent = "web_development"
-        } else if (lowerMessage.includes("mobile") || lowerMessage.includes("app")) {
-          response = predefinedResponses.services.mobile
-          metadata.intent = "mobile_development"
-        } else if (
-          lowerMessage.includes("ai") ||
-          lowerMessage.includes("machine learning") ||
-          lowerMessage.includes("ml")
-        ) {
-          response = predefinedResponses.services.ai
-          metadata.intent = "ai_services"
-        } else if (lowerMessage.includes("DevOps Services") || lowerMessage.includes("cloud")) {
-          response = predefinedResponses.services.devops
-          metadata.intent = "devops_services"
-        } else if (lowerMessage.includes("security") || lowerMessage.includes("cybersecurity")) {
-          response = predefinedResponses.services.security
-          metadata.intent = "security_services"
-        } else if (lowerMessage.includes("email") || lowerMessage.includes("send")) {
-          response =
-            "I can help you with email-related actions:\n\n📧 **Send Information** - Service details, pricing, case studies\n📋 **Project Forms** - Detailed requirement gathering\n📅 **Calendar Links** - Schedule meetings\n📞 **Contact Details** - Direct team contacts\n\nWhat would you like me to send you?"
-          metadata.intent = "email_request"
-          actions = [
-            {
-              type: "email",
-              label: "Company Brochure",
-              data: { subject: "abaidabbott Expereience information ", template: "brochure" },
-            },
-            {
-              type: "email",
-              label: "Service Portfolio",
-              data: { subject: "Our Services Portfolio", template: "portfolio" },
-            },
-          ]
-        } else {
-          // General AI response
-          const newMessage = { role: "user", content: message };
-          const updatedMessages = [...state.messages, newMessage];
-          const general = await generalReponse(updatedMessages, newMessage)
-          response = general.response
+    if (lowerMessage.includes("quote") || lowerMessage.includes("price") || lowerMessage.includes("cost")) {
+      addBotMessage(predefinedResponses.quote, {
+        actions: [
+          { type: "email", label: "Request Form", data: { subject: "Quote Request" } },
+          { type: "schedule", label: "Book Meeting", data: { type: "quote" } },
+        ],
+        metadata: { intent: "quote", confidence: 1.0 }
+      })
+      return
+    }
 
-          actions = general.actions || []
-          metadata.intent = general.intent
-          metadata.confidence = general.confidence
-        }
+    // AI Fallback via Proxy API (Secure)
+    try {
+      const history = state.messages.map(m => ({
+        role: m.type === "bot" ? "model" : "user",
+        parts: [{ text: m.content }]
+      }))
 
-        addBotMessage(response, { actions, metadata })
-      },
-      1000 + Math.random() * 1000,
-    ) // Realistic typing delay
-  }
-  const generalReponse = async (updatedMessages: any, newMessage: any) => {
-    const url = await import.meta.env.VITE_APP_API_URL;
-    const username = await import.meta.env.VITE_APP_USERNAME;
-    const password = await import.meta.env.VITE_APP_PASSWORD;
+      const userContext = `User: ${state.context.userName} (${state.context.userEmail}).`
+      
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message,
+          history: history.slice(-8),
+          userContext
+        })
+      })
 
-    const credentials = btoa(`${username}:${password}`); // Base64 encode
+      if (!response.ok) throw new Error("API call failed")
+      
+      const data = await response.json()
+      addBotMessage(data.response, { actions: data.actions, metadata: { intent: data.intent, confidence: 0.9 } })
 
-    const reply = await axios.post(url, { message: newMessage?.message, updatedMessages }, {
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Basic ${credentials}`
-      }
-    }).then((res: any) => res.data)
-    return reply
+    } catch (error) {
+      console.error("Chat Error", error)
+      addBotMessage("I'm having trouble connecting! Please schedule a calender or email me directly.")
+    } finally {
+      setState((prev) => ({ ...prev, isTyping: false }))
+    }
   }
 
   const handleSendMessage = () => {
     if (!state.currentInput.trim()) return
-
-    addUserMessage(state.currentInput)
-    handleRequest()
-
-
-
-  }
-  const handleRequest = async () => {
-    const url = await import.meta.env.VITE_APP_API_URL;
-    const username = await import.meta.env.VITE_APP_USERNAME;
-    const password = await import.meta.env.VITE_APP_PASSWORD;
-
-    const credentials = btoa(`${username}:${password}`); // Base64 encode
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Basic ${credentials}`
-      },
-      body: JSON.stringify({
-        message: `this is user name ${state.context.userName}, phone number
-      ${state.context.phoneNumber}and email
-      ${state.context.userEmail}, here user message ${state.currentInput}`
-      })
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        const response = data.output
-        addBotMessage(response.response, { actions: response.actions, metadata: { confidence: response.confidence, intent: response.intent } })
-      })
-      .catch(error => {
-
-        processUserMessage(state.currentInput)
-        console.log(error)
-        // addBotMessage(`❌ Failed to send email. Please try again later. ${error.message}`)
-
-
-      });
+    const input = state.currentInput
+    addUserMessage(input)
+    processUserMessage(input)
   }
 
   const handleQuickAction = (query: string) => {
@@ -348,142 +224,31 @@ export default function Chatbot() {
   const handleActionClick = async (action: MessageAction) => {
     switch (action.type) {
       case "email":
-        await handleEmailAction(action.data)
-        break;
-      case "call": {
-        const phone = state.context.phoneNumber || "+92 (311) 1715499"
-
-        addBotMessage(
-          `📞 You can reach us at:\n\n**${phone}**\n\nTapping the button below will start the call.`,
-          {
-            actions: [
-              {
-                type: "link",
-                label: "Call Now",
-                data: { url: `tel:${phone}` },
-              },
-              {
-                type: "email",
-                label: "Request Callback",
-                data: { subject: "Callback Request", template: "callback_form" },
-              },
-            ],
-            metadata: {
-              intent: "call_request",
-              confidence: 0.9,
-            },
-          }
-        )
-
+        setState((prev) => ({ ...prev, isTyping: true }))
+        setTimeout(() => {
+          addBotMessage(`✅ I've noted your interest in ${action.data.subject}. I'll follow up at ${state.context.userEmail || "your email"} soon!`)
+          setState((prev) => ({ ...prev, isTyping: false }))
+        }, 1000)
         break
-      }
+      case "call":
+        window.open(getWhatsAppUrl(), "_blank")
+        break
       case "schedule":
-        await handleScheduleAction(action.data)
-        break
-      case "download":
-        // Handle download
+        setShowCalendly(true)
+        addBotMessage("📅 Calendar opened! Please pick a time that works for you.")
         break
       case "link":
         window.open(action.data.url, "_blank")
         break
     }
   }
-  const handleEmailAction = async (emailData: any) => {
-    const userEmail = state.context.userEmail || "abaidullahbuttcs@gmail.com" // fallback if missing
-    setState((prev) => ({ ...prev, isTyping: true }))
-    const url = await import.meta.env.VITE_APP_API_URL;
-    const username = await import.meta.env.VITE_APP_USERNAME;
-    const password = await import.meta.env.VITE_APP_PASSWORD;
 
-    const credentials = btoa(`${username}:${password}`); // Base64 encode
-    try {
-      await axios.post(url, {
-
-        message: ` this is the user name ${state.context.userName}
-  Send an email to ${userEmail} with subject "${emailData.subject}". 
-  Use template "${emailData.template}" if provided, otherwise create a professional one. 
-  After sending, schedule a 30-min consultation in Google Calendar at the next available slot.
-  `
-
-      }, {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Basic ${credentials}`
-        }
-      })
-
-      addBotMessage(
-        `✅ Email sent successfully!\n\n📧 **Subject**: ${emailData.subject}\n📬 **Sent to**: ${userEmail}\n⏰ **Delivery**: Immediate\n\nYou should receive it within the next few minutes. Please check your spam folder if you don't see it in your inbox.`,
-        {
-          actions: [{ type: "email", label: "Send Another", data: { subject: "Follow-up Information" } }],
-        }
-      )
-
-    } catch (error) {
-      console.error("Email error", error)
-      addBotMessage(`❌ Failed to send email. Please try again later.`)
-    } finally {
-      setState((prev) => ({ ...prev, isTyping: false }))
-    }
-  }
-
-  const handleScheduleAction = async (scheduleData: any) => {
-    setState((prev) => ({ ...prev, isTyping: true, scheduleData }))
-    // 1. Trigger the modal
-    setShowCalendly(true)
-    // 2. Add confirmation message
-    setTimeout(() => {
-      addBotMessage(
-        `📅 Your booking assistant is ready!\n\nUse the calendar popup to choose a time slot that fits your schedule.\n\n⏰ Duration: 30-60 min\n👥 Attendees: You + Expert\n📍 Format: Video or Phone\n\nIf you close the popup, you can also use the link below.`,
-        {
-          actions: [
-            {
-              type: "link",
-              label: "Open in New Tab",
-              data: { url: calendlyURL },
-            },
-            {
-              type: "email",
-              label: "Request Manual Booking",
-              data: { subject: "Need help scheduling", template: "manual_booking" },
-            },
-          ],
-          metadata: {
-            intent: "schedule_request",
-            confidence: 0.95,
-          },
-        }
-      )
-
-      setState((prev) => ({ ...prev, isTyping: false }))
-    }, 1200)
-  }
-
-
-
-  const copyMessage = (content: string) => {
-    navigator.clipboard.writeText(content)
-    // Show toast notification
-  }
-
-  const toggleChatbot = () => {
-    setState((prev) => ({ ...prev, isOpen: !prev.isOpen }))
-  }
-
-  const toggleMinimize = () => {
-    setState((prev) => ({ ...prev, isMinimized: !prev.isMinimized }))
-  }
-
+  const copyMessage = (content: string) => navigator.clipboard.writeText(content)
+  const toggleChatbot = () => setState((prev) => ({ ...prev, isOpen: !prev.isOpen }))
+  const toggleMinimize = () => setState((prev) => ({ ...prev, isMinimized: !prev.isMinimized }))
   const clearChat = () => {
-    setState((prev) => ({
-      ...prev,
-      messages: [],
-      context: { ...prev.context, conversationStage: "greeting" },
-    }))
-    // Re-initialize with greeting
-    setTimeout(() => {
-      addBotMessage(predefinedResponses.greeting[1])
-    }, 100)
+    setState((prev) => ({ ...prev, messages: [] }))
+    setTimeout(() => addBotMessage(predefinedResponses.greeting[1]), 100)
   }
 
   const handleUserInfoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -492,276 +257,127 @@ export default function Chatbot() {
     const name = data.get("userName") as string;
     const phone = data.get("phoneNumber") as string;
     const email = data.get("email") as string;
-
-    const isValid = {
-      name: /^[a-zA-Z\s]{2,}$/.test(name),
-      phone: /^\+?[0-9\s\-().]{7,}$/.test(phone),
-      email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
-    };
-
-    if (!isValid.name || !isValid.phone || !isValid.email) {
-      alert("Please enter valid name, phone, and email.");
-      return;
-    }
-
+    if (!name || !email) return alert("Please fill at least name and email.");
     setState((prev) => ({
       ...prev,
-      context: { ...prev.context, userName: name, phoneNumber: phone, userEmail: email, email },
+      context: { ...prev.context, userName: name, phoneNumber: phone, userEmail: email },
     }));
   };
-
-
 
   if (!state.isOpen) {
     return (
       <div className="fixed bottom-6 right-6 z-50">
-        <button
-          onClick={toggleChatbot}
-          className=" rounded-full bg-black hover:from-teal-500 hover:to-cyan-500 text-black shadow-2xl hover:shadow-[#0f2658]/25 transition-all duration-300 group"
-          style={{
-            animation: "pulse 2s infinite",
-          }}
-        >
-          <MessageCircle className="w-12 h-12 group-hover:scale-110 transition-transform duration-200 text-white" />
+        <button onClick={toggleChatbot} className="rounded-full bg-black p-3 text-white shadow-2xl hover:scale-110 transition-transform">
+          <MessageCircle className="w-10 h-10" />
         </button>
-
-        {/* Floating notification */}
-        <div className="absolute -top-12 -left-32 bg-white text-black px-4 py-2 rounded-lg shadow-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-          Need help? Chat with our AI assistant!
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full">
-            <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
-          </div>
-        </div>
       </div>
     )
   }
 
   return (
-    <div >
-      <section
-        className={`bg-gray-900/95 backdrop-blur-md border border-white border-2 rounded-xl  shadow-2xl transition-all duration-300 ${state.isMinimized ? "w-auto h-auto" : "w-auto h-[600px] "
-          }`}
-      >
-        {/* Header */}
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      <section className={`bg-gray-900/95 backdrop-blur-md border border-white border-2 rounded-xl shadow-2xl transition-all ${state.isMinimized ? "h-auto w-auto" : "h-[600px] w-[380px]"}`}>
         <div className="flex items-center justify-between p-4 border-b border-white/10">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-[#fff] rounded-full flex items-center justify-center">
-              <Bot className="w-6 h-6 text-black" />
-            </div>
+            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center"><Bot className="text-black w-6 h-6" /></div>
             <div>
-              <h3 className="text-white font-semibold">Abaid Abbott</h3>
-              <div className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-xs text-gray-400">Online</span>
-              </div>
+              <h3 className="text-white font-semibold">Abaid Ullah</h3>
+              <div className="flex items-center space-x-1"><div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div><span className="text-xs text-gray-400">AI Assistant</span></div>
             </div>
           </div>
-
-          <div className="flex items-center space-x-2">
-            <button onClick={toggleMinimize} className="text-gray-400 hover:text-white">
-              {state.isMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}
-            </button>
-            <button onClick={clearChat} className="text-gray-400 hover:text-white">
-              <RotateCcw className="w-4 h-4" />
-            </button>
-            <button onClick={toggleChatbot} className="text-gray-400 hover:text-white">
-              <X className="w-4 h-4" />
-            </button>
+          <div className="flex items-center space-x-2 text-gray-400">
+            <button onClick={toggleMinimize}>{state.isMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}</button>
+            <button onClick={clearChat}><RotateCcw className="w-4 h-4" /></button>
+            <button onClick={toggleChatbot}><X className="w-4 h-4" /></button>
           </div>
         </div>
 
         {!state.isMinimized && (
-          <>
-            {/* Chat Messages */}
-            {!state.context?.userEmail ? (<form onSubmit={handleUserInfoSubmit} className="flex flex-col space-y-2 p-4">
-
-              <div className="text-center py-8">
-                <Sparkles className="w-12 h-12 text-[#0f2658] mx-auto mb-4" />
-                <h4 className="text-white font-medium mb-2">Welcome to Abaid Abbott Bot!</h4>
-                <p className="text-gray-400 text-sm">I'm here to help you with abaidabbott services and inquiries.</p>
-              </div>
-
-              <input
-                name="userName"
-                placeholder="Your Name"
-                className="bg-gray-700 border-white border-2 text-white placeholder-gray-400 text-sm p-2 flex-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3283ca] transition-all duration-200"
-              />
-
-              <input
-                name="phoneNumber"
-                placeholder="Your Phone Number"
-                className="bg-gray-700 border-white border-2 text-white placeholder-gray-400 text-sm p-2 flex-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3283ca] transition-all duration-200"
-              />
-
-              <input
-                name="email"
-                placeholder="Your Email"
-                className="bg-gray-700 border-white border-2 text-white placeholder-gray-400 text-sm p-2 flex-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3283ca] transition-all duration-200"
-              />
-
-              <button
-                type="submit"
-                className="text-xs border-white border-2 hover:bg-white/10 justify-center p-2 rounded-lg text-white hover:bg-white hover:text-black transition-colors duration-200"
-              >
-                Save Info
-              </button>
-            </form>
-            ) : (
+          <div className="flex flex-col h-[520px]">
+             {!state.context.userEmail ? (
+                <form onSubmit={handleUserInfoSubmit} className="p-6 flex flex-col space-y-4">
+                  <div className="text-center mb-4">
+                    <Sparkles className="w-12 h-12 text-white mx-auto mb-2" />
+                    <h4 className="text-white font-medium">Chat with Abaid</h4>
+                    <p className="text-gray-400 text-sm">Please provide your details to start.</p>
+                  </div>
+                  <input name="userName" placeholder="Name" className="bg-gray-800 border-white border-2 text-white p-3 rounded-lg focus:ring-1 focus:ring-black outline-none" required />
+                  <input name="email" type="email" placeholder="Email" className="bg-gray-800 border-white border-2 text-white p-3 rounded-lg focus:ring-1 focus:ring-black outline-none" required />
+                  <input name="phoneNumber" placeholder="Phone (optional)" className="bg-gray-800 border-white border-2 text-white p-3 rounded-lg focus:ring-1 focus:ring-black outline-none" />
+                  <button type="submit" className="bg-black hover:bg-gray-800 border-white border-2 text-white p-3 rounded-lg font-medium transition-colors">Start Chatting</button>
+                </form>
+             ) : (
               <>
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 h-96">
-
-
-                  {state.messages.map((message) => (
-                    <div key={message.id} className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}>
-                      <div
-                        className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.type === "user"
-                          ? "bg-[#3283ca]"
-                          : "bg-gray-800 text-white border border-white/10"
-                          }`}
-                      >
-                        <div className="flex items-start space-x-2">
-                          {message.type === "bot" && <Bot className="w-5 h-5 text-[#0f2658] mt-0.5 flex-shrink-0" />}
-                          <div className="flex-1">
-                            <div className="whitespace-pre-wrap text-sm leading-relaxed">{message.content}</div>
-
-                            {message.metadata && (
-                              <div className="mt-2 flex items-center space-x-2 text-xs opacity-70">
-                                <Brain className="w-3 h-3" />
-                                <span>Confidence: {Math.round((message.metadata.confidence || 0) * 100)}%</span>
-                                {message.metadata.intent && (
-                                  <span className="px-2 py-1 bg-white/10 rounded">{message.metadata.intent}</span>
-                                )}
-                              </div>
-                            )}
-
-                            {message.actions && message.actions.length > 0 && (
-                              <div className="mt-3 flex flex-wrap gap-2">
-                                {message.actions.map((action, index) => (
-                                  <button
-                                    key={index}
-
-
-                                    onClick={() => handleActionClick(action)}
-                                    className="text-xs border-white border-2 hover:bg-white/10 border-white/30 text-white hover:bg-white hover:text-black rounded-lg px-3 py-1 flex items-center transition-colors duration-200"
-                                  >
-                                    {action.type === "email" && <Mail className="w-3 h-3 mr-1" />}
-                                    {action.type === "call" && <Phone className="w-3 h-3 mr-1" />}
-                                    {action.type === "schedule" && <Calendar className="w-3 h-3 mr-1" />}
-                                    {action.label}
-                                  </button>
-                                ))}
-                              </div>
-                            )}
-
-                            <div className="mt-2 flex items-center justify-between">
-                              <span className="text-xs opacity-50">
-                                {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-                              </span>
-                              {message.type === "bot" && (
-                                <div className="flex items-center space-x-1">
-                                  <button
-
-
-                                    onClick={() => copyMessage(message.content)}
-                                    className="p-1 h-auto text-gray-400 hover:text-white"
-                                  >
-                                    <Copy className="w-3 h-3" />
-                                  </button>
-                                  <button
-
-
-                                    className="p-1 h-auto text-gray-400 hover:text-green-400"
-                                  >
-                                    <ThumbsUp className="w-3 h-3" />
-                                  </button>
-                                  <button className="p-1 h-auto text-gray-400 hover:text-red-400">
-                                    <ThumbsDown className="w-3 h-3" />
-                                  </button>
-                                </div>
-                              )}
-                            </div>
+                <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                  {state.messages.map((m) => (
+                    <div key={m.id} className={`flex ${m.type === "user" ? "justify-end" : "justify-start"}`}>
+                      <div className={`max-w-[85%] rounded-2xl p-3 ${m.type === "user" ? "bg-black text-white" : "bg-gray-800 text-white border border-white/10"}`}>
+                        <div className="text-sm whitespace-pre-wrap">{m.content}</div>
+                        {m.actions && (
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            {m.actions.map((a, i) => (
+                              <button key={i} onClick={() => handleActionClick(a)} className="text-xs bg-white/10 hover:bg-white/20 border border-white border-2 px-3 py-1.5 rounded-lg transition-colors flex items-center">
+                                {a.type === "email" && <Mail className="w-3 h-3 mr-1" />}
+                                {a.type === "schedule" && <Calendar className="w-3 h-3 mr-1" />}
+                                {a.label}
+                              </button>
+                            ))}
                           </div>
+                        )}
+                        <div className="mt-2 flex items-center justify-between opacity-50 text-[10px]">
+                           <span>{m.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                           {m.type === "bot" && <div className="flex space-x-2">
+                              <button onClick={() => copyMessage(m.content)}><Copy className="w-3 h-3" /></button>
+                              <ThumbsUp className="w-3 h-3 cursor-pointer" />
+                              <ThumbsDown className="w-3 h-3 cursor-pointer" />
+                           </div>}
                         </div>
                       </div>
                     </div>
                   ))}
-
                   {state.isTyping && (
                     <div className="flex justify-start">
-                      <div className="bg-gray-800 border border-white/10 rounded-2xl px-4 py-3 max-w-[80%]">
-                        <div className="flex items-center space-x-2">
-                          <Bot className="w-5 h-5 text-[#0f2658]" />
-                          <div className="flex space-x-1">
-                            <div className="w-2 h-2 bg-[#0f2658] rounded-full animate-bounce"></div>
-                            <div
-                              className="w-2 h-2 bg-[#0f2658] rounded-full animate-bounce"
-                              style={{ animationDelay: "0.1s" }}
-                            ></div>
-                            <div
-                              className="w-2 h-2 bg-[#0f2658] rounded-full animate-bounce"
-                              style={{ animationDelay: "0.2s" }}
-                            ></div>
-                          </div>
-                        </div>
+                      <div className="bg-gray-800 rounded-2xl p-3 flex space-x-1">
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce delay-75"></div>
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce delay-150"></div>
                       </div>
                     </div>
                   )}
-
                   <div ref={messagesEndRef} />
-
-
-
-                  {/* Input */}
-
                 </div>
-                {state.messages.length <= 1 ? (
-                  <div className="px-4 pb-2">
-                    <div className="text-xs text-gray-300 mb-2">Quick Actions:</div>
-                    <div className="grid grid-cols-2 gap-2">
-                      {quickActions.map((action, index) => (
-                        <button
-                          key={index}
-                          onClick={() => handleQuickAction(action.query)}
-                          className="text-xs border-white border-2 hover:bg-white/10 justify-start p-1 rounded-lg text-white hover:bg-white hover:text-black flex items-center"
-                        >
-                          <action.icon className="w-3 h-3 mr-2" />
-                          {action.label}
-                        </button>
-                      ))}
+                
+                <div className="p-4 border-t border-white/10">
+                  {state.messages.length <= 1 && (
+                    <div className="grid grid-cols-2 gap-2 mb-4">
+                       {quickActions.map((a, i) => (
+                         <button key={i} onClick={() => handleQuickAction(a.query)} className="text-[10px] text-gray-400 border-white border-2 p-2 rounded-lg hover:bg-white/5 text-left flex items-center">
+                           <a.icon className="w-3 h-3 mr-2 text-white" /> {a.label}
+                         </button>
+                       ))}
                     </div>
-                  </div>
-                ) : <div className="p-4 border-t border-white/10">
+                  )}
                   <div className="flex space-x-2">
-                    <input
-                      ref={inputRef}
-                      value={state.currentInput}
-                      onChange={(e) => setState((prev) => ({ ...prev, currentInput: e.target.value }))}
-                      // onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-                      placeholder="Ask me anything about my Experience..."
-                      className="bg-gray-700 border-white border-2 text-white placeholder-gray-400 text-sm p-2 flex-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3283ca] transition-all duration-200"
-                      disabled={state.isTyping}
-                    />
-                    <button
-                      onClick={handleSendMessage}
-                      disabled={!state.currentInput.trim() || state.isTyping}
-                      className="bg-[#3283ca] hover:from-teal-500 hover:to-cyan-500 text-black rounded-lg p-2 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
-                    >
-                      <Send className="w-4 h-4" />
-                    </button>
+                     <input 
+                       ref={inputRef} 
+                       value={state.currentInput} 
+                       onChange={(e) => setState(p => ({ ...p, currentInput: e.target.value }))} 
+                       onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+                       placeholder="Message Abaid..." 
+                       className="flex-1 bg-gray-800 border-white border-2 text-white text-sm p-3 rounded-xl focus:ring-1 focus:ring-black outline-none"
+                     />
+                     <button onClick={handleSendMessage} disabled={!state.currentInput.trim() || state.isTyping} className="bg-black hover:bg-gray-800 border-white border-2 text-white p-3 rounded-xl disabled:opacity-50 transition-colors">
+                       <Send className="w-5 h-5" />
+                     </button>
                   </div>
-
-                  <div className="mt-2 text-xs text-gray-500 text-center">Powered by Abaid Abbott • Secure & Private</div>
-                </div>}
-
+                  <p className="text-[10px] text-gray-500 text-center mt-3">Powered by Gemini AI • Secure & Private</p>
+                </div>
               </>
-            )}
-          </>
+             )}
+          </div>
         )}
-
       </section>
       <CalendlyModal url={calendlyURL} open={showCalendly} onClose={() => setShowCalendly(false)} />
-
-
     </div>
   )
 }

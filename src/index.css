@@ -11,3 +11,10 @@
     transform: scale(1.05);
   }
 }
+
+body { margin: 0; font-family: 'Inter', sans-serif; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+a:focus-visible, button:focus-visible { outline: 3px solid #3b82f6; outline-offset: 4px; }
+.skip-link { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 12px 18px; background: white; color: black; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

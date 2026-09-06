@@ -1,0 +1,3 @@
+Contact: mailto:bestabaidullahbutt@gmail.com
+Preferred-Languages: en
+Canonical: https://abaidbutt.website/.well-known/security.txt

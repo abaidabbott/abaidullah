@@ -29,7 +29,7 @@ const skillCategories = [
         ]
     },
     {
-        title: "MERN Stack",
+        title: "MERN & Web Stack",
         icon: <FaReact className="text-3xl mb-2" />,
         skills: [
             { name: "React.js", icon: <FaReact /> },
@@ -38,6 +38,9 @@ const skillCategories = [
             { name: "MongoDB", icon: <SiMongodb /> },
             { name: "Next.js", icon: <FaReact /> },
             { name: "TypeScript", icon: <FaReact /> },
+            { name: "MySQL", icon: <SiExpress /> },
+            { name: "PostgreSQL", icon: <SiExpress /> },
+            { name: "Firebase", icon: <SiExpress /> },
         ]
     },
     {
@@ -45,21 +48,21 @@ const skillCategories = [
         icon: <FaMobile className="text-3xl mb-2" />,
         skills: [
             { name: "React Native", icon: <FaMobile /> },
-            { name: "iOS Development", icon: <FaMobile /> },
-            { name: "Android Development", icon: <FaMobile /> },
-            { name: "Cross-platform", icon: <FaMobile /> },
+            { name: "iOS/Android", icon: <FaMobile /> },
+            { name: "SQLite", icon: <FaMobile /> },
+            { name: "Push Notifications", icon: <FaMobile /> },
         ]
     },
     {
         title: "Cloud & DevOps",
         icon: <FaAws className="text-3xl mb-2" />,
         skills: [
-            { name: "AWS", icon: <FaAws /> },
-            { name: "EC2", icon: <FaAws /> },
-            { name: "S3", icon: <FaAws /> },
-            { name: "Lambda", icon: <FaAws /> },
+            { name: "AWS (ECS, EC2, S3)", icon: <FaAws /> },
             { name: "Docker", icon: <FaAws /> },
-            { name: "CI/CD", icon: <FaAws /> },
+            { name: "CI/CD Pipelines", icon: <FaAws /> },
+            { name: "Cloud Functions", icon: <FaAws /> },
+            { name: "Git/Github/Gitlab", icon: <FaAws /> },
+            { name: "Unit Testing", icon: <FaAws /> },
         ]
     },
     {

@@ -1,0 +1,297 @@
+{
+  "name": "Abaid Ullah",
+  "primaryUsername": "abaidabbott",
+  "alternateUsernames": [
+    "abaidbutt"
+  ],
+  "url": "https://abaidbutt.website/",
+  "jobTitle": "Forward-Deployed Applied AI Engineer",
+  "description": "Abaid Ullah builds applied AI products, product systems, mobile apps and automation for global teams, with capability across solution architecture, product engineering and deployment.",
+  "location": "Lahore, Punjab, Pakistan",
+  "availability": "Available for global teams and remote collaboration",
+  "skills": [
+    "Python",
+    "React",
+    "Next.js",
+    "Node.js",
+    "MERN stack",
+    "React Native",
+    "FastAPI",
+    "Django",
+    "Flask",
+    "AI/ML",
+    "LLM integrations",
+    "RAG",
+    "GraphRAG",
+    "Computer vision",
+    "Nylas integrations",
+    "Supabase",
+    "MongoDB",
+    "AWS",
+    "Workflow automation"
+  ],
+  "sameAs": [
+    "https://github.com/abaidabbott",
+    "https://www.linkedin.com/in/abaidabbott",
+    "https://x.com/abaidabbott",
+    "https://www.youtube.com/@abaidabbott",
+    "https://calendly.com/bestabaidullahbutt"
+  ],
+  "contact": {
+    "email": "bestabaidullahbutt@gmail.com",
+    "url": "https://abaidbutt.website/#contact",
+    "bookingUrl": "https://calendly.com/bestabaidullahbutt",
+    "whatsapp": "Use the website contact button. Visitors in Pakistan are routed to the Pakistan WhatsApp number; other visitors are routed to the UK WhatsApp number."
+  },
+  "projectSource": {
+    "file": "profile.md",
+    "totalProjects": 18,
+    "syncedAt": "2026-09-06"
+  },
+  "projects": [
+    {
+      "position": 1,
+      "name": "Twin Companion",
+      "category": "Conversational AI",
+      "url": "https://twin-companion.com",
+      "description": "Conversational AI app with advanced session memory and adaptive sentiment matching that dynamically adjusts chatbot response tone.",
+      "role": "Frontend + AI Integration",
+      "renewalDate": "2026-04-20",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 2,
+      "name": "RIA Catalyst",
+      "category": "Fintech & M&A",
+      "url": "https://riacatalyst.com/",
+      "description": "AI-powered M&A intelligence and deal-sourcing platform built for Registered Investment Advisors (RIA dealmakers).",
+      "role": "Full-stack (Next.js + MongoDB)",
+      "renewalDate": "2026-08-14",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 3,
+      "name": "Snootme",
+      "category": "Computer Vision & Productivity",
+      "url": "https://snootme.com",
+      "description": "Real-time image analyzer with seamless Nylas calendar integration and automated meeting scheduling.",
+      "role": "Full-stack + AI / Nylas",
+      "renewalDate": "2026-08-30",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 4,
+      "name": "Shabbaton CTeen",
+      "category": "Community & Events",
+      "url": "https://shabbaton.cteen.com/",
+      "description": "Responsive Jewish weekend community event portal with streamlined registration and intuitive information architecture.",
+      "role": "Frontend (React)",
+      "renewalDate": "2025-11-15",
+      "status": "Active"
+    },
+    {
+      "position": 5,
+      "name": "MatchStatHub",
+      "category": "Sports Analytics",
+      "url": "https://matchstathub.com",
+      "description": "Data-driven football statistics and analytics platform tracking, aggregating, and displaying live match metrics.",
+      "role": "Full-stack + Data Aggregation",
+      "renewalDate": "2026-09-12",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 6,
+      "name": "SPS Fulfillment",
+      "category": "Logistics & Supply Chain",
+      "url": "https://spsfulfillment.com",
+      "description": "Logistics platform enabling 24-hour onboarding for EU warehousing and fulfillment with real-time shipment tracking.",
+      "role": "Full-stack (Logistics)",
+      "renewalDate": "2026-05-25",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 7,
+      "name": "RussWorld",
+      "category": "E-Commerce & Media",
+      "url": "https://russworld.com",
+      "description": "Robust e-commerce and fan engagement platform for exclusive merchandise drops, digital content, and event updates.",
+      "role": "Full-stack E-Commerce",
+      "renewalDate": "2026-02-28",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 8,
+      "name": "Surge Digital Marketing",
+      "category": "Marketing Analytics",
+      "url": "https://surge.justdigitalmarketing.com/",
+      "description": "Centralized advertising dashboard aggregating paid campaign performance across Google Ads and Facebook Ads.",
+      "role": "Full-stack + Data Analytics",
+      "renewalDate": "2026-04-15",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 9,
+      "name": "Alfalah Collection",
+      "category": "E-Commerce & Retail",
+      "url": "https://alfalahcollection.com",
+      "description": "Global multi-vendor e-commerce platform offering localized flash deals, automated discounts, and webMCP integration.",
+      "role": "Full-stack E-Commerce",
+      "renewalDate": "2026-07-15",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 10,
+      "name": "Vital Edge Fit",
+      "category": "Healthcare & AI SaaS",
+      "url": "https://www.vital-edge-fit.space/",
+      "description": "Healthcare & fitness SaaS featuring secure auth, patient records, and an integrated chatbot for automated appointment booking.",
+      "role": "Full-stack (Next.js + Supabase)",
+      "renewalDate": "2026-03-15",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 11,
+      "name": "Study Mind",
+      "category": "EdTech & Learning",
+      "url": "https://studymindlab.site",
+      "description": "Interactive learning platform with a NotebookLLM-style framework for document-based reasoning, notes, and study scheduling.",
+      "role": "Full-stack (Next.js + LLM)",
+      "renewalDate": "2026-05-10",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 12,
+      "name": "Planet AI",
+      "category": "AI Workflow Builder",
+      "url": "https://planet-ai.online",
+      "description": "Dynamic full-stack workflow builder utilizing multi-agent AI orchestration to automate and streamline complex business tasks.",
+      "role": "Full-stack + AI Agents",
+      "renewalDate": "2026-06-18",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 13,
+      "name": "BMC Capital / PMC Capital",
+      "category": "PropTech & Fintech CRM",
+      "url": "https://pmc-capital.rent/",
+      "description": "Real estate & mortgage CRM system automating property pipelines, document verification, and portfolio management.",
+      "role": "Full-stack Fintech",
+      "renewalDate": "2026-07-22",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 14,
+      "name": "Developer Portfolio",
+      "category": "Portfolio & Personal",
+      "url": "https://abaidbutt.website/",
+      "description": "Personal engineering portfolio showcasing full-stack applications, interactive demos, and technical case studies.",
+      "role": "Frontend (Next.js / Tailwind)",
+      "renewalDate": "2025-12-31",
+      "status": "Active"
+    },
+    {
+      "position": 15,
+      "name": "The AutoBot",
+      "category": "Conversational AI",
+      "url": "https://theautobot.ca",
+      "description": "Custom-built enterprise GraphRAG assistant application combining vector search and knowledge graphs for verifiable compliance.",
+      "role": "Full-stack + AI (GraphRAG / Neo4j)",
+      "renewalDate": "2026-09-01",
+      "status": "Auto-Renew"
+    },
+    {
+      "position": 16,
+      "name": "Vlore",
+      "category": "Mobile Application",
+      "url": "https://apps.apple.com/us/app/vloreapp/id6753225226",
+      "description": "Cross-platform mobile application for scanning, writing, and managing NFC tags and physical assets efficiently.",
+      "role": "React Native Developer",
+      "renewalDate": "2025-10-30",
+      "status": "Active"
+    },
+    {
+      "position": 17,
+      "name": "Tactlink",
+      "category": "Mobile Application",
+      "url": "https://apps.apple.com/sg/app/tactlink/id1469516661",
+      "description": "Cross-platform commercial business directory and networking mobile app published on iOS and Android.",
+      "role": "React Native Developer",
+      "renewalDate": "2025-11-30",
+      "status": "Active"
+    },
+    {
+      "position": 18,
+      "name": "Fuboot (PakBC Committee)",
+      "category": "Mobile Fintech",
+      "url": "https://play.google.com/store/apps/details?id=com.fuboot.app",
+      "description": "Community financial pooling and chit fund savings app with SQL optimization and group contribution tracking.",
+      "role": "React Native Developer",
+      "renewalDate": "2025-12-15",
+      "status": "Active"
+    }
+  ],
+  "internationalExperience": {
+    "description": "I have worked with international teams and companies in the USA, Canada, Europe and Asia, including the UAE. My experience includes work with Summitcrew and Snootme.",
+    "regions": [
+      "USA",
+      "Canada",
+      "Europe",
+      "Asia",
+      "UAE"
+    ],
+    "companies": [
+      "Summitcrew",
+      "Snootme"
+    ]
+  },
+  "preferredRoles": [
+    "Forward-Deployed Engineer",
+    "Senior Applied AI Engineer",
+    "Applied AI Engineer",
+    "Product Engineer",
+    "Solution Architect",
+    "Technical Product Manager"
+  ],
+  "capabilities": [
+    "Lead technical discovery with product and business teams",
+    "Design applied AI systems from requirements to production",
+    "Build RAG, GraphRAG, computer vision and workflow automation products",
+    "Architect full-stack platforms with React, Next.js, Node.js, Python and cloud services",
+    "Ship React Native mobile apps and production integrations"
+  ],
+  "projectGroups": [
+    {
+      "name": "AI, Automation & Applied Systems",
+      "projects": [
+        "Twin Companion",
+        "Study Mind",
+        "Vital Edge Fit",
+        "Planet AI",
+        "The AutoBot",
+        "Alfalah Collection"
+      ]
+    },
+    {
+      "name": "Web Apps & Product Platforms",
+      "projects": [
+        "RIA Catalyst",
+        "Snootme",
+        "BMC Capital / PMC Capital",
+        "MatchStatHub",
+        "SPS Fulfillment",
+        "RussWorld",
+        "Surge Digital Marketing",
+        "Shabbaton CTeen",
+        "Developer Portfolio"
+      ]
+    },
+    {
+      "name": "Mobile Apps",
+      "projects": [
+        "Vlore",
+        "Tactlink",
+        "Fuboot (PakBC Committee)"
+      ]
+    }
+  ]
+}
