@@ -1,0 +1,197 @@
+{
+  "name": "Abaid Ullah",
+  "profileUrl": "https://abaidbutt.website/engineering-profile.html",
+  "professionalTitle": "Full Stack AI Software Engineer",
+  "roleInterests": [
+    "Forward Deployed Engineer",
+    "Solution Architect",
+    "Technical Product Manager",
+    "RAG Specialist",
+    "RAG Architect",
+    "AI Agent Architect",
+    "LLMOps Engineer"
+  ],
+  "skills": [
+    {
+      "area": "RAG specialist and knowledge architecture",
+      "tools": [
+        "RAG",
+        "GraphRAG",
+        "Knowledge graph RAG",
+        "Microsoft GraphRAG",
+        "LlamaIndex",
+        "Haystack",
+        "Qdrant",
+        "Pinecone",
+        "pgvector",
+        "Neo4j",
+        "LangChain",
+        "ColPali",
+        "Unstructured",
+        "Hybrid search",
+        "Reranking"
+      ]
+    },
+    {
+      "area": "Agent architecture and orchestration",
+      "tools": [
+        "LangGraph",
+        "CrewAI",
+        "AutoGen",
+        "PydanticAI",
+        "GPT-Researcher",
+        "browser-use",
+        "OpenHands",
+        "Mem0",
+        "Model Context Protocol (MCP)",
+        "Custom MCP servers",
+        "FastMCP",
+        "Text-to-SQL agents"
+      ]
+    },
+    {
+      "area": "LLMOps, evaluation and model serving",
+      "tools": [
+        "RAGAS",
+        "Langfuse",
+        "Arize Phoenix",
+        "LangSmith",
+        "Instructor",
+        "DSPy",
+        "NeMo Guardrails",
+        "vLLM",
+        "Ollama",
+        "Structured outputs",
+        "LLM-as-judge evaluation"
+      ]
+    },
+    {
+      "area": "Model adaptation, voice and vision",
+      "tools": [
+        "Unsloth",
+        "QLoRA",
+        "Axolotl",
+        "LiveKit",
+        "Whisper",
+        "YOLO",
+        "ComfyUI",
+        "Hugging Face",
+        "OpenAI",
+        "Vapi",
+        "ElevenLabs",
+        "OpenCV",
+        "OCR"
+      ]
+    },
+    {
+      "area": "Backend systems, data and distributed work",
+      "tools": [
+        "Python",
+        "FastAPI",
+        "Django",
+        "Flask",
+        "Node.js",
+        "NestJS",
+        "Express",
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Supabase",
+        "Redis",
+        "DynamoDB",
+        "Queues",
+        "Background workers",
+        "REST APIs"
+      ]
+    },
+    {
+      "area": "Cloud infrastructure and alerting",
+      "tools": [
+        "Kubernetes",
+        "Docker",
+        "AWS EC2",
+        "AWS ECS",
+        "AWS S3",
+        "AWS RDS",
+        "AWS Bedrock",
+        "GCP",
+        "GitHub Actions",
+        "CI/CD",
+        "OpenTelemetry",
+        "Datadog",
+        "Prometheus",
+        "Grafana",
+        "Alerting systems"
+      ]
+    },
+    {
+      "area": "Workflow automation and business integrations",
+      "tools": [
+        "n8n",
+        "Make",
+        "Zapier",
+        "Outlook",
+        "Nylas",
+        "Stripe",
+        "Webhooks",
+        "CRM integration",
+        "Google Analytics API"
+      ]
+    },
+    {
+      "area": "Web, mobile and product delivery",
+      "tools": [
+        "React",
+        "Next.js",
+        "React Native",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Redux",
+        "SQLite",
+        "Recharts",
+        "NFC",
+        "NTAG 424 DNA",
+        "OAuth",
+        "MFA",
+        "Spec-driven development",
+        "Solution architecture",
+        "Technical product delivery"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "title": "How I Solve Business Problems Through Software and AI",
+      "url": "https://abaidbutt.website/engineering-profile.html"
+    },
+    {
+      "title": "How I Connect Business Requirements to Delivered Software",
+      "url": "https://abaidbutt.website/forward-deployed-engineer.html"
+    },
+    {
+      "title": "How I Build and Optimize Full Stack AI Products",
+      "url": "https://abaidbutt.website/full-stack-ai-engineer.html"
+    },
+    {
+      "title": "How I Build RAG Systems and Agent-Based Applications",
+      "url": "https://abaidbutt.website/generative-ai-engineer.html"
+    },
+    {
+      "title": "How I Handle Backend Integrations, Performance and Deployment",
+      "url": "https://abaidbutt.website/python-fastapi-developer.html"
+    },
+    {
+      "title": "How I Build React Products and Optimize Web Delivery",
+      "url": "https://abaidbutt.website/react-developer.html"
+    },
+    {
+      "title": "How I Build Mobile Workflows and Improve Their Business Value",
+      "url": "https://abaidbutt.website/react-native-developer.html"
+    }
+  ],
+  "hiringPage": {
+    "title": "Hire Abaid Ullah | Forward Deployed & AI Engineer",
+    "url": "https://abaidbutt.website/hire-abaid-ullah.html"
+  }
+}

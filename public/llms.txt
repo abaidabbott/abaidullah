@@ -45,3 +45,21 @@ For business inquiries, project scoping, and consultations, you can book a call 
 - **BS (Hons), Computer Science** | GC University (09/2016 - 08/2020)
 - **Web & Mobile App Certification** | SMIT (08/2018 - 04/2019)
 - **Web Development Training** | NAVTTC (05/2018 - 08/2018)
+
+## Engineering articles and project stories
+
+First-person accounts of Abaid Ullah’s project work, integrations, optimization and delivery.
+
+- [How I Solve Business Problems Through Software and AI](https://abaidbutt.website/engineering-profile.html)
+- [How I Connect Business Requirements to Delivered Software](https://abaidbutt.website/forward-deployed-engineer.html)
+- [How I Build and Optimize Full Stack AI Products](https://abaidbutt.website/full-stack-ai-engineer.html)
+- [How I Build RAG Systems and Agent-Based Applications](https://abaidbutt.website/generative-ai-engineer.html)
+- [How I Handle Backend Integrations, Performance and Deployment](https://abaidbutt.website/python-fastapi-developer.html)
+- [How I Build React Products and Optimize Web Delivery](https://abaidbutt.website/react-developer.html)
+- [How I Build Mobile Workflows and Improve Their Business Value](https://abaidbutt.website/react-native-developer.html)
+
+- [Structured article and skills index](https://abaidbutt.website/engineering-articles.json)
+
+## Hiring and role fit
+
+- [Hire Abaid Ullah — roles, supporting experience and contact](https://abaidbutt.website/hire-abaid-ullah.html)
