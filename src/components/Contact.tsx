@@ -1,11 +1,13 @@
 import React from 'react';
 import { calendlyUrl } from "../lib/booking";
-import { contactEmail, getWhatsAppUrl, internationalPhoneDisplay, internationalPhoneUrl, linkedInUrl } from "../lib/contact";
+import { contactEmail, getPhoneContact, linkedInUrl } from "../lib/contact";
 import { FaEnvelope, FaGithub, FaLinkedin, FaPhone, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { TbClockHour4 } from "react-icons/tb";
 import Chatbot from './chatbot/chatbot';
 
 const Contact: React.FC = () => {
+  const phone = getPhoneContact();
+
   return (
     <section id="contact" className="py-24 bg-white text-gray-900 border-t border-gray-200">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -28,7 +30,7 @@ const Contact: React.FC = () => {
               <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center rounded-xl bg-blue-600 hover:bg-blue-700 px-6 py-4 font-bold text-white transition-colors shadow-sm">
                 Book a call
               </a>
-              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center rounded-xl border border-gray-300 bg-white px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 transition-colors shadow-sm">
+              <a href={phone.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center rounded-xl border border-gray-300 bg-white px-6 py-4 font-bold text-gray-900 hover:bg-gray-50 transition-colors shadow-sm">
                 <FaWhatsapp className="mr-2 text-green-600" size={20} />
                 WhatsApp
               </a>
@@ -37,7 +39,7 @@ const Contact: React.FC = () => {
             <div className="space-y-6">
               {[
                 { icon: <FaEnvelope size={20} className="text-blue-600" />, label: contactEmail, href: `mailto:${contactEmail}` },
-                { icon: <FaPhone size={20} className="text-blue-600" />, label: internationalPhoneDisplay, href: internationalPhoneUrl },
+                { icon: <FaPhone size={20} className="text-blue-600" />, label: 'Call mobile', href: phone.phoneUrl },
                 { icon: <FaGithub size={20} className="text-blue-600" />, label: 'github.com/abaidabbott', href: "https://github.com/abaidabbott" },
                 { icon: <FaLinkedin size={20} className="text-blue-600" />, label: 'linkedin.com/in/abaidabbott', href: linkedInUrl },
                 // { icon: <FaTwitter size={20} className="text-blue-600" />, label: 'x.com/abaidabbott', href: "https://x.com/abaidabbott" },

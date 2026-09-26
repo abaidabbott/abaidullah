@@ -2,9 +2,15 @@ const pakistanWhatsAppNumber = '923111715499';
 const internationalWhatsAppNumber = '447473943919';
 
 export const contactEmail = 'bestabaidullahbutt@gmail.com';
-export const internationalPhoneDisplay = '+44 7473 943919';
-export const internationalPhoneUrl = 'tel:+447473943919';
 export const linkedInUrl = 'https://www.linkedin.com/in/abaidabbott';
+
+const pakistanPhone = {
+  number: pakistanWhatsAppNumber,
+};
+
+const internationalPhone = {
+  number: internationalWhatsAppNumber,
+};
 
 export function isLikelyPakistanVisitor() {
   const locale = navigator.language.toLowerCase();
@@ -15,6 +21,14 @@ export function isLikelyPakistanVisitor() {
 }
 
 export function getWhatsAppUrl() {
-  const phoneNumber = isLikelyPakistanVisitor() ? pakistanWhatsAppNumber : internationalWhatsAppNumber;
-  return `https://wa.me/${phoneNumber}`;
+  return getPhoneContact().whatsappUrl;
+}
+
+export function getPhoneContact() {
+  const phone = isLikelyPakistanVisitor() ? pakistanPhone : internationalPhone;
+
+  return {
+    phoneUrl: `tel:+${phone.number}`,
+    whatsappUrl: `https://wa.me/${phone.number}`,
+  };
 }

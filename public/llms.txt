@@ -54,6 +54,7 @@ First-person accounts of Abaid Ullah’s project work, integrations, optimizatio
 
 - [How I Solve Business Problems Through Software and AI](https://abaidbutt.website/engineering-profile.html)
 - [How I Connect Business Requirements to Delivered Software](https://abaidbutt.website/forward-deployed-engineer.html)
+- [How I Work as a Forward Deployed Engineer for an E-commerce Business](https://abaidbutt.website/ecommerce-forward-deployed-engineering.html)
 - [How I Build and Optimize Full Stack AI Products](https://abaidbutt.website/full-stack-ai-engineer.html)
 - [How I Build RAG Systems and Agent-Based Applications](https://abaidbutt.website/generative-ai-engineer.html)
 - [How I Handle Backend Integrations, Performance and Deployment](https://abaidbutt.website/python-fastapi-developer.html)

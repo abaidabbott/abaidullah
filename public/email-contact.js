@@ -21,6 +21,16 @@ document.querySelectorAll('[data-email-contact]').forEach((contact) => {
 });
 
 // Give every article a consistent, verified route back to the portfolio owner.
+const visitorLocales = [navigator.language, ...(navigator.languages || [])]
+  .filter(Boolean)
+  .map((language) => language.toLowerCase());
+const visitorTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const isPakistanVisitor = visitorTimeZone === 'Asia/Karachi'
+  || visitorLocales.some((language) => language.endsWith('-pk'));
+const visitorPhone = isPakistanVisitor
+  ? { number: '923111715499' }
+  : { number: '447473943919' };
+
 const articleMain = document.querySelector('main');
 if (articleMain && !document.querySelector('[data-article-contact]')) {
   const contactPanel = document.createElement('aside');
@@ -32,8 +42,8 @@ if (articleMain && !document.querySelector('[data-article-contact]')) {
     <p>Available for AI, web and mobile development, e-commerce systems, data solutions, CRM integrations and business automation.</p>
     <div class="article-contact-links">
       <a href="mailto:bestabaidullahbutt@gmail.com?subject=Project%20inquiry%20from%20your%20website">Email Abaid</a>
-      <a href="tel:+447473943919">Call +44 7473 943919</a>
-      <a href="https://wa.me/447473943919">WhatsApp</a>
+      <a href="tel:+${visitorPhone.number}">Call mobile</a>
+      <a href="https://wa.me/${visitorPhone.number}">WhatsApp</a>
       <a href="https://www.linkedin.com/in/abaidabbott">LinkedIn</a>
       <a href="https://calendly.com/bestabaidullahbutt">Book a call</a>
       <a href="/#contact">Contact form</a>
