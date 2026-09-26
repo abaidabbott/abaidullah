@@ -2,6 +2,13 @@
   "name": "Abaid Ullah",
   "profileUrl": "https://abaidbutt.website/engineering-profile.html",
   "professionalTitle": "Full Stack AI Software Engineer",
+  "contact": {
+    "email": "bestabaidullahbutt@gmail.com",
+    "phone": "+44 7473 943919",
+    "linkedIn": "https://www.linkedin.com/in/abaidabbott",
+    "whatsapp": "https://wa.me/447473943919",
+    "contactForm": "https://abaidbutt.website/#contact"
+  },
   "roleInterests": [
     "Forward Deployed Engineer",
     "Solution Architect",
@@ -9,7 +16,11 @@
     "RAG Specialist",
     "RAG Architect",
     "AI Agent Architect",
-    "LLMOps Engineer"
+    "LLMOps Engineer",
+    "Independent Software Developer",
+    "Full Stack AI Engineer",
+    "AI Developer",
+    "Applied AI Engineer"
   ],
   "skills": [
     {
@@ -188,10 +199,20 @@
     {
       "title": "How I Build Mobile Workflows and Improve Their Business Value",
       "url": "https://abaidbutt.website/react-native-developer.html"
+    },
+    {
+      "title": "Custom Software vs Shopify, WooCommerce and CRM Platforms: Cost, Reliability and Scale",
+      "url": "https://abaidbutt.website/custom-software-vs-crm-cost.html"
     }
   ],
   "hiringPage": {
     "title": "Hire Abaid Ullah | Forward Deployed & AI Engineer",
     "url": "https://abaidbutt.website/hire-abaid-ullah.html"
-  }
+  },
+  "collaborationInterests": [
+    "Business and startup projects",
+    "Agency engineering collaboration",
+    "Independent development",
+    "Engineering team roles"
+  ]
 }

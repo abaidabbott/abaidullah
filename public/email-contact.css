@@ -1,0 +1,17 @@
+.email-contact{display:inline-flex;flex-direction:column;gap:8px;max-width:100%;vertical-align:middle}
+.email-address{box-sizing:border-box;width:31ch;max-width:100%;font:inherit;font-size:.95rem;color:#111827;background:#f8fafc;border:1px solid #cbd5e1;border-radius:6px;padding:8px}
+.email-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.email-actions button{font:inherit;cursor:pointer;background:#1d4ed8;color:white;border:0;border-radius:8px;padding:10px 16px}
+.email-actions button:disabled{opacity:.65;cursor:wait}
+.email-actions button[hidden]{display:none}
+.email-actions button:focus-visible,.email-address:focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+.email-status{font-size:.9rem;color:#334155;line-height:1.5}
+.email-status:empty{display:none}
+.article-contact{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:20px;margin:32px 0;color:#172554}
+.article-contact h2{margin:0 0 8px;font-size:1.35rem}
+.article-contact p{margin:8px 0;max-width:75ch}
+.article-contact-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.article-contact-links a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid #93c5fd;border-radius:8px;background:white;color:#1d4ed8;font-weight:700;text-decoration:none}
+.article-contact-links a:first-child{background:#1d4ed8;color:white;border-color:#1d4ed8}
+.article-contact-links a:hover{background:#dbeafe}
+.article-contact-links a:first-child:hover{background:#1e40af}

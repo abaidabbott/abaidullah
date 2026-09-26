@@ -1,7 +1,8 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaMobileAlt, FaRobot, FaRocket } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaMobileAlt, FaRobot, FaRocket } from 'react-icons/fa';
 import {  FiZap, FiDownload } from 'react-icons/fi';
 import { calendlyUrl } from '../lib/booking';
+import { contactEmail } from '../lib/contact';
 
 const highlights = ['SaaS products', 'AI agents', 'RAG systems', 'Mobile apps', 'Automation'];
 
@@ -36,6 +37,10 @@ const Hero: React.FC = () => {
             <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-8 py-3.5 font-bold text-gray-900 transition-all hover:bg-gray-50 shadow-sm">
               <FiZap className="text-blue-600" />
               Book a Call
+            </a>
+            <a href={`mailto:${contactEmail}?subject=Project%20inquiry%20from%20your%20portfolio`} className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-8 py-3.5 font-bold text-white transition-colors hover:bg-gray-800 shadow-sm">
+              <FaEnvelope />
+              Email Me
             </a>
             <a href="/Abaid_Ullah_CV.pdf" download="Abaid_Ullah_CV.pdf" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-8 py-3.5 font-bold text-gray-900 transition-all hover:bg-gray-50 shadow-sm">
               <FiDownload className="text-gray-700" />

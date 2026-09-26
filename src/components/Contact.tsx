@@ -1,7 +1,7 @@
 import React from 'react';
 import { calendlyUrl } from "../lib/booking";
-import { getWhatsAppUrl } from "../lib/contact";
-import { FaEnvelope, FaGithub, FaLinkedin,  FaYoutube, FaWhatsapp } from 'react-icons/fa';
+import { contactEmail, getWhatsAppUrl, internationalPhoneDisplay, internationalPhoneUrl, linkedInUrl } from "../lib/contact";
+import { FaEnvelope, FaGithub, FaLinkedin, FaPhone, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { TbClockHour4 } from "react-icons/tb";
 import Chatbot from './chatbot/chatbot';
 
@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
             Let's Connect
           </h2>
           <p className="text-lg md:text-xl text-gray-600">
-            Open a direct channel for full stack AI software, product engineering and mobile app work.
+            Have a project, contract or role in mind? Contact me directly or share the details with the assistant below.
           </p>
         </div>
 
@@ -36,9 +36,10 @@ const Contact: React.FC = () => {
 
             <div className="space-y-6">
               {[
-                { icon: <FaEnvelope size={20} className="text-blue-600" />, label: 'bestabaidullahbutt@gmail.com', href: "mailto:bestabaidullahbutt@gmail.com" },
+                { icon: <FaEnvelope size={20} className="text-blue-600" />, label: contactEmail, href: `mailto:${contactEmail}` },
+                { icon: <FaPhone size={20} className="text-blue-600" />, label: internationalPhoneDisplay, href: internationalPhoneUrl },
                 { icon: <FaGithub size={20} className="text-blue-600" />, label: 'github.com/abaidabbott', href: "https://github.com/abaidabbott" },
-                { icon: <FaLinkedin size={20} className="text-blue-600" />, label: 'linkedin.com/in/abaidabbott', href: "https://www.linkedin.com/in/abaidabbott" },
+                { icon: <FaLinkedin size={20} className="text-blue-600" />, label: 'linkedin.com/in/abaidabbott', href: linkedInUrl },
                 // { icon: <FaTwitter size={20} className="text-blue-600" />, label: 'x.com/abaidabbott', href: "https://x.com/abaidabbott" },
                 // { icon: <FaFacebook size={20} className="text-blue-600" />, label: 'facebook.com/abaidabbott', href: "https://www.facebook.com/abaidabbott/" },
                 { icon: <FaYoutube size={20} className="text-blue-600" />, label: 'youtube.com/@abaidabbott', href: "https://www.youtube.com/@abaidabbott" },

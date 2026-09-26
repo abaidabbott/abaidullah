@@ -50,9 +50,12 @@
   ],
   "contact": {
     "email": "bestabaidullahbutt@gmail.com",
+    "phone": "+44 7473 943919",
+    "phoneUrl": "tel:+447473943919",
+    "linkedIn": "https://www.linkedin.com/in/abaidabbott",
     "url": "https://abaidbutt.website/#contact",
     "bookingUrl": "https://calendly.com/bestabaidullahbutt",
-    "whatsapp": "Use the website contact button. Visitors in Pakistan are routed to the Pakistan WhatsApp number; other visitors are routed to the UK WhatsApp number."
+    "whatsapp": "https://wa.me/447473943919"
   },
   "projectSource": {
     "file": "profile.md",

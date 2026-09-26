@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaYoutube, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaYoutube, FaTwitter, FaFacebook, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { contactEmail, internationalPhoneDisplay, internationalPhoneUrl } from '../lib/contact';
 
 const Footer: React.FC = () => {
   return (
@@ -8,6 +9,14 @@ const Footer: React.FC = () => {
         <p className="text-sm font-medium tracking-wide">
           <span className="text-gray-900 font-bold">Abaid Ullah</span> · @abaidabbott
         </p>
+        <nav aria-label="Engineering guides" className="flex flex-col gap-2 text-sm">
+          <a href="/custom-software-vs-crm-cost.html" className="hover:text-blue-600 underline underline-offset-4">Custom software vs Shopify and CRM costs</a>
+          <a href="/engineering-profile.html" className="hover:text-blue-600 underline underline-offset-4">Engineering articles and project experience</a>
+        </nav>
+        <div className="flex flex-col gap-2 text-sm font-semibold">
+          <a href={`mailto:${contactEmail}`} className="inline-flex items-center justify-center gap-2 hover:text-blue-600"><FaEnvelope aria-hidden="true" />{contactEmail}</a>
+          <a href={internationalPhoneUrl} className="inline-flex items-center justify-center gap-2 hover:text-blue-600"><FaPhone aria-hidden="true" />{internationalPhoneDisplay}</a>
+        </div>
         <div className="flex justify-center space-x-6">
           <a href="https://linkedin.com/in/abaidabbott" className="hover:text-blue-600 transition-colors duration-200" aria-label="LinkedIn Profile">
             <FaLinkedin size={20} />
